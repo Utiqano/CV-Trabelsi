@@ -29,8 +29,10 @@
     <title>Trabelsi Houssine - Interactive CV</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
     <style>
         :root {
             --primary-color: #1e3a8a;
@@ -40,6 +42,7 @@
             --sidebar-bg: #1e293b;
             --hover-color: #fb923c;
             --gradient: linear-gradient(135deg, #f97316, #f59e0b);
+            --gradient-anim: linear-gradient(135deg, #f97316 0%, #f59e0b 50%, #f97316 100%);
         }
 
         * {
@@ -102,6 +105,11 @@
             transform: scale(1.1);
         }
 
+        .sidebar-toggle:focus {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+
         .sidebar-section h3 {
             font-size: 1.3rem;
             color: var(--accent-color);
@@ -123,6 +131,11 @@
         .sidebar-section a:hover, .sidebar-section button:hover {
             background: var(--hover-color);
             transform: translateX(8px);
+        }
+
+        .sidebar-section a:focus, .sidebar-section button:focus {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
         }
 
         .login-form, .message-cv {
@@ -148,6 +161,11 @@
             font-size: 0.9rem;
         }
 
+        .login-form input:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
         .login-form button, .message-cv button {
             background: var(--primary-color);
             color: #fff;
@@ -161,6 +179,11 @@
 
         .login-form button:hover, .message-cv button:hover {
             background: var(--hover-color);
+        }
+
+        .login-form button:focus, .message-cv button:focus {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
         }
 
         .received-messages {
@@ -209,9 +232,17 @@
             text-align: center;
             padding: 3rem 0;
             position: relative;
-            background: var(--gradient);
+            background: var(--gradient-anim);
             border-radius: 10px;
             overflow: hidden;
+            animation: gradientShift 8s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .hero-section img {
@@ -270,6 +301,11 @@
             transform: translateY(-2px);
         }
 
+        .lang-btn:focus {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+
         .contact-info {
             display: flex;
             flex-wrap: wrap;
@@ -293,6 +329,11 @@
             transform: translateY(-2px);
         }
 
+        .contact-info a:focus {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+
         .section {
             margin: 2rem 0;
             padding-bottom: 1rem;
@@ -306,7 +347,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.3s ease;
+            transition: color 0.5s ease;
         }
 
         .section-title:hover {
@@ -316,6 +357,10 @@
         .section-title i:hover {
             transform: rotate(360deg);
             transition: transform 0.5s ease;
+        }
+
+        .section-title.in-view {
+            color: var(--accent-color);
         }
 
         .section-content {
@@ -341,6 +386,11 @@
         summary:hover {
             background: var(--accent-color);
             color: #fff;
+        }
+
+        summary:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
         }
 
         .tasks-list {
@@ -379,6 +429,11 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
+        .toggle-btn:focus, .download-btn:focus, .print-btn:focus, .submit-btn:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
         .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 0.8rem;
@@ -393,6 +448,26 @@
             border-color: var(--accent-color);
             box-shadow: 0 0 8px rgba(249, 115, 22, 0.3);
             outline: none;
+        }
+
+        .contact-form input:invalid:not(:placeholder-shown), .contact-form textarea:invalid:not(:placeholder-shown) {
+            border-color: #ef4444;
+        }
+
+        .contact-form input:valid:not(:placeholder-shown) {
+            border-color: #10b981;
+        }
+
+        .contact-form .input-error {
+            color: #ef4444;
+            font-size: 0.8rem;
+            margin-top: -0.8rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .contact-form .input-error.active {
+            display: block;
         }
 
         .contact-form textarea {
@@ -502,7 +577,7 @@
                 background: #fff;
                 color: #000;
             }
-            .sidebar, .lean-elements, .sidebar-toggle, .lang-btn, .download-btn, .print-btn, .submit-btn, .contact-form, .form-success, .loader, .chart-container {
+            .sidebar, .lean-elements, .sidebar-toggle, .lang-btns, .download-btn, .print-btn, .submit-btn, .contact-form, .form-success, .loader, .chart-container {
                 display: none;
             }
             .cv-container {
@@ -516,6 +591,9 @@
             }
             .section-content {
                 display: block;
+            }
+            .section-title {
+                color: #000;
             }
         }
     </style>
@@ -568,7 +646,7 @@
                 <a href="https://www.linkedin.com/in/trabelsi-houssine-355332102" target="_blank" data-key="linkedin_message" aria-label="Message on LinkedIn">Message on LinkedIn</a>
             </div>
             <div class="actions">
-                <a href="https://1drv.ms/b/c/9bd9f0dbc8c8eac7/EVDcv_BuyBhHnPq9baBTA6AB60jaVhebrs5Y6OjyhsAusA?e=x3L4FI" target="_blank" class="download-btn" data-key="download" aria-label="Download CV as PDF">Download CV</a>
+                <button class="download-btn" data-key="download" aria-label="Generate and Download CV as PDF">Download CV</button>
                 <button class="print-btn" data-key="print" aria-label="Print CV">Print CV</button>
             </div>
         </div>
@@ -673,6 +751,7 @@
                     <form class="contact-form" id="contact-form">
                         <input type="text" name="name" placeholder="Your Name" required data-key="form_name_placeholder" aria-label="Your Name">
                         <input type="email" name="email" placeholder="Your Email" required data-key="form_email_placeholder" aria-label="Your Email">
+                        <p class="input-error" id="email-error" data-key="invalid_email">Please enter a valid email address.</p>
                         <textarea name="message" placeholder="Your Message" required data-key="form_message_placeholder" aria-label="Your Message"></textarea>
                         <button type="submit" class="submit-btn" data-key="form_submit" aria-label="Send Message">Send Message</button>
                         <div class="loader" id="form-loader">
@@ -791,7 +870,10 @@ My leadership is grounded in Lean Manufacturing principles, with a strong focus 
                 form_error: "Failed to send message: ",
                 permission_denied: "Please log in first.",
                 logged_out: "Logged out successfully!",
-                no_messages: "No messages received yet."
+                no_messages: "No messages received yet.",
+                invalid_email: "Please enter a valid email address.",
+                generating_pdf: "Generating PDF...",
+                pdf_error: "Failed to generate PDF: "
             },
             fr: {
                 name: "Trabelsi Houssine",
@@ -859,7 +941,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 sending: "Envoi en cours...",
                 form_success: "Message envoyé avec succès !",
                 download: "Télécharger le CV",
-                print: "Imprimer le CV",
+                print: "Print CV",
                 linkedin_message: "Message sur LinkedIn",
                 lang_en: "English",
                 lang_fr: "Français",
@@ -877,7 +959,10 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 form_error: "Échec de l'envoi du message : ",
                 permission_denied: "Veuillez d'abord vous connecter.",
                 logged_out: "Déconnexion réussie !",
-                no_messages: "Aucun message reçu pour le moment."
+                no_messages: "Aucun message reçu pour le moment.",
+                invalid_email: "Veuillez entrer une adresse email valide.",
+                generating_pdf: "Génération du PDF...",
+                pdf_error: "Échec de la génération du PDF : "
             },
             ar: {
                 name: "ترابلسي حسين",
@@ -963,7 +1048,10 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 form_error: "فشل إرسال الرسالة: ",
                 permission_denied: "يرجى تسجيل الدخول أولاً.",
                 logged_out: "تم تسجيل الخروج بنجاح!",
-                no_messages: "لا توجد رسائل مستلمة بعد."
+                no_messages: "لا توجد رسائل مستلمة بعد.",
+                invalid_email: "يرجى إدخال عنوان بريد إلكتروني صالح.",
+                generating_pdf: "جاري إنشاء PDF...",
+                pdf_error: "فشل إنشاء PDF: "
             }
         };
 
@@ -980,6 +1068,11 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             }
             localStorage.setItem('sidebarState', isClosed ? 'open' : 'closed');
             gsap.to(sidebar, { x: isClosed ? 0 : '-100%', duration: 0.4, ease: "power2.out" });
+            if (isClosed) {
+                sidebar.querySelector('button, a')?.focus();
+            } else {
+                toggle.focus();
+            }
         };
 
         window.showLogin = () => {
@@ -989,6 +1082,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 loginForm.classList.add('active');
                 messageCv.classList.remove('active');
                 gsap.fromTo(loginForm, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+                loginForm.querySelector('input')?.focus();
             }
         };
 
@@ -1004,6 +1098,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 messagesLoader.style.display = 'block';
                 await fetchReceivedMessages();
                 messagesLoader.style.display = 'none';
+                messageCv.querySelector('button')?.focus();
             } else {
                 alert(translations[currentLang]?.login_first || 'Please log in first!');
                 showLogin();
@@ -1045,6 +1140,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 contactSection.querySelector('details').open = true;
                 contactSection.scrollIntoView({ behavior: 'smooth' });
                 gsap.from(contactSection.querySelector('.section-content'), { opacity: 0, y: 20, duration: 0.5 });
+                contactSection.querySelector('input[name="name"]')?.focus();
             }
         };
 
@@ -1105,6 +1201,18 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
         let lastSubmission = 0;
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
+            const emailInput = document.querySelector('#contact-form [name="email"]');
+            const emailError = document.getElementById('email-error');
+            if (emailInput && emailError) {
+                emailInput.addEventListener('input', () => {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailInput.value || emailRegex.test(emailInput.value)) {
+                        emailError.classList.remove('active');
+                    } else {
+                        emailError.classList.add('active');
+                    }
+                });
+            }
             contactForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const now = Date.now();
@@ -1126,6 +1234,8 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
                     alert(translations[currentLang]?.invalid_email || 'Please enter a valid email address.');
+                    emailError.classList.add('active');
+                    emailInput.focus();
                     return;
                 }
                 submitButton.disabled = true;
@@ -1140,6 +1250,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                     });
                     formSuccess.style.display = 'block';
                     contactForm.reset();
+                    emailError.classList.remove('active');
                     gsap.fromTo(formSuccess, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5 });
                     setTimeout(() => {
                         gsap.to(formSuccess, { opacity: 0, duration: 0.5, onComplete: () => formSuccess.style.display = 'none' });
@@ -1161,7 +1272,10 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             currentLang = lang;
             localStorage.setItem('lang', lang);
             document.body.setAttribute('lang', lang);
-            langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+            langButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+                btn.setAttribute('aria-current', btn.dataset.lang === lang ? 'true' : 'false');
+            });
             document.querySelectorAll('[data-key]').forEach(element => {
                 const translation = translations[lang][element.dataset.key] || element.innerHTML;
                 element.innerHTML = translation;
@@ -1172,11 +1286,13 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             if (auth.currentUser && document.getElementById('message-cv')?.classList.contains('active')) {
                 fetchReceivedMessages();
             }
+            initChart();
         }
 
         langButtons.forEach(btn => btn.addEventListener('click', () => {
             setLanguage(btn.dataset.lang);
             gsap.from('.cv-container', { opacity: 0, duration: 0.5 });
+            btn.focus();
         }));
         setLanguage(currentLang);
 
@@ -1187,6 +1303,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                         if (other !== details) other.removeAttribute('open');
                     });
                     gsap.from(details.querySelector('.section-content'), { opacity: 0, y: 20, duration: 0.5 });
+                    details.querySelector('summary')?.focus();
                 }
             });
         });
@@ -1199,12 +1316,62 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 hiddenTasks.forEach(task => task.style.display = isHidden ? 'list-item' : 'none');
                 toggleBtn.textContent = translations[currentLang][isHidden ? 'show_less' : 'show_more'];
                 gsap.from(hiddenTasks, { opacity: 0, y: 10, duration: 0.5, stagger: 0.1 });
+                toggleBtn.focus();
             });
         }
 
         const printBtn = document.querySelector('.print-btn');
         if (printBtn) {
             printBtn.addEventListener('click', () => window.print());
+        }
+
+        const downloadBtn = document.querySelector('.download-btn');
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', async () => {
+                downloadBtn.disabled = true;
+                downloadBtn.textContent = translations[currentLang]?.generating_pdf || 'Generating PDF...';
+                try {
+                    const element = document.querySelector('.cv-container');
+                    if (!element) throw new Error('CV container not found');
+                    const sidebar = document.querySelector('.sidebar');
+                    const toggle = document.querySelector('.sidebar-toggle');
+                    const langButtons = document.querySelector('.lang-btns');
+                    const buttons = document.querySelector('.actions');
+                    const contactForm = document.querySelector('#contact-us');
+                    const chart = document.querySelector('.chart-container');
+                    if (sidebar) sidebar.style.display = 'none';
+                    if (toggle) toggle.style.display = 'none';
+                    if (langButtons) langButtons.style.display = 'none';
+                    if (buttons) buttons.style.display = 'none';
+                    if (contactForm) contactForm.style.display = 'none';
+                    if (chart) chart.style.display = 'none';
+                    document.querySelectorAll('.section-content').forEach(content => content.style.display = 'block');
+                    await html2pdf().from(element).set({
+                        filename: 'Trabelsi_Houssine_CV.pdf',
+                        margin: 10,
+                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    }).save();
+                } catch (error) {
+                    alert((translations[currentLang]?.pdf_error || 'Failed to generate PDF: ') + error.message);
+                } finally {
+                    downloadBtn.disabled = false;
+                    downloadBtn.textContent = translations[currentLang]?.download || 'Download CV';
+                    const sidebar = document.querySelector('.sidebar');
+                    const toggle = document.querySelector('.sidebar-toggle');
+                    const langButtons = document.querySelector('.lang-btns');
+                    const buttons = document.querySelector('.actions');
+                    const contactForm = document.querySelector('#contact-us');
+                    const chart = document.querySelector('.chart-container');
+                    if (sidebar) sidebar.style.display = 'block';
+                    if (toggle) toggle.style.display = 'block';
+                    if (langButtons) langButtons.style.display = 'flex';
+                    if (buttons) buttons.style.display = 'block';
+                    if (contactForm) contactForm.style.display = 'block';
+                    if (chart) chart.style.display = 'block';
+                    document.querySelectorAll('.section-content').forEach(content => content.style.display = 'none');
+                    downloadBtn.focus();
+                }
+            });
         }
 
         function createLeanElements() {
@@ -1262,9 +1429,28 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             });
         }
 
+        function initSectionAnimations() {
+            document.querySelectorAll('.section').forEach(section => {
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        const title = entry.target.querySelector('.section-title');
+                        if (entry.isIntersecting) {
+                            title.classList.add('in-view');
+                            gsap.to(title, { color: 'var(--accent-color)', duration: 0.5 });
+                        } else {
+                            title.classList.remove('in-view');
+                            gsap.to(title, { color: 'var(--primary-color)', duration: 0.5 });
+                        }
+                    });
+                }, { threshold: 0.5 });
+                observer.observe(section);
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             createLeanElements();
             initChart();
+            initSectionAnimations();
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     showMessageCv();
