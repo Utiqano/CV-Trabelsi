@@ -30,6 +30,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --primary-color: #1e3a8a;
@@ -312,6 +313,11 @@
             color: var(--accent-color);
         }
 
+        .section-title i:hover {
+            transform: rotate(360deg);
+            transition: transform 0.5s ease;
+        }
+
         .section-content {
             display: none;
             padding: 1rem 0;
@@ -404,6 +410,19 @@
             margin-top: 1rem;
         }
 
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 1rem;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        .loader i {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
         .lean-elements {
             position: fixed;
             top: 0;
@@ -421,12 +440,17 @@
             background: var(--accent-color);
             border-radius: 50%;
             opacity: 0.6;
-            animation: floatParticle 6s infinite ease-in-out;
+            animation: floatParticle 8s infinite ease-in-out;
         }
 
         @keyframes floatParticle {
             0%, 100% { transform: translateY(0); opacity: 0.6; }
             50% { transform: translateY(-30px); opacity: 0.9; }
+        }
+
+        .chart-container {
+            max-width: 600px;
+            margin: 1rem auto;
         }
 
         @media screen and (max-width: 1024px) {
@@ -455,6 +479,9 @@
                 width: 140px;
                 height: 140px;
             }
+            .chart-container {
+                max-width: 100%;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -475,7 +502,7 @@
                 background: #fff;
                 color: #000;
             }
-            .sidebar, .lean-elements, .sidebar-toggle, .lang-btn, .download-btn, .print-btn, .submit-btn, .contact-form, .form-success {
+            .sidebar, .lean-elements, .sidebar-toggle, .lang-btn, .download-btn, .print-btn, .submit-btn, .contact-form, .form-success, .loader, .chart-container {
                 display: none;
             }
             .cv-container {
@@ -495,7 +522,7 @@
 </head>
 <body lang="en">
     <div class="lean-elements"></div>
-    <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle Sidebar">☰</button>
+    <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle Sidebar" aria-expanded="false">☰</button>
     <div class="sidebar closed">
         <div class="sidebar-section">
             <h3 data-key="navigation_title">Navigation</h3>
@@ -508,12 +535,18 @@
             <input type="password" id="login-password" placeholder="Password" required data-key="login_password_placeholder" aria-label="Password">
             <button onclick="loginWithEmail()" data-key="login_button" aria-label="Login">Login</button>
             <button onclick="logout()" data-key="logout_button" aria-label="Logout">Logout</button>
+            <div class="loader" id="login-loader">
+                <i class="fas fa-spinner fa-spin"></i> <span data-key="loading">Loading...</span>
+            </div>
         </div>
         <div class="message-cv" id="message-cv">
             <h3 data-key="message_cv_title">Message CV</h3>
             <button onclick="logout()" data-key="logout_button" aria-label="Logout">Logout</button>
             <div class="received-messages" id="received-messages">
                 <h4 data-key="received_messages_title">Received Messages</h4>
+                <div class="loader" id="messages-loader">
+                    <i class="fas fa-spinner fa-spin"></i> <span data-key="loading">Loading...</span>
+                </div>
                 <div id="messages-list"></div>
             </div>
         </div>
@@ -571,7 +604,7 @@
             <details>
                 <summary class="section-title"><i class="fas fa-recycle"></i> <span data-key="lean_title">Lean Manufacturing</span></summary>
                 <div class="section-content" data-key="lean_text">
-                    Applied 5S and Kaizen to reduce waste by 10%. Completed Lean Manufacturing certification (July 2025).
+                    Applied 5S and Kaizen to reduce waste by 10%. Completed Lean Manufacturing certification (July 2024).
                 </div>
             </details>
         </div>
@@ -581,6 +614,9 @@
                 <summary class="section-title"><i class="fas fa-chart-line"></i> <span data-key="continuous_title">Continuous Improvement</span></summary>
                 <div class="section-content" data-key="continuous_text">
                     Improved efficiency by 20% via TRS and QRQC. Achieved 99.9% PPM compliance (2022). Proposed 15+ improvement actions yearly.
+                    <div class="chart-container">
+                        <canvas id="improvement-chart"></canvas>
+                    </div>
                 </div>
             </details>
         </div>
@@ -639,6 +675,9 @@
                         <input type="email" name="email" placeholder="Your Email" required data-key="form_email_placeholder" aria-label="Your Email">
                         <textarea name="message" placeholder="Your Message" required data-key="form_message_placeholder" aria-label="Your Message"></textarea>
                         <button type="submit" class="submit-btn" data-key="form_submit" aria-label="Send Message">Send Message</button>
+                        <div class="loader" id="form-loader">
+                            <i class="fas fa-spinner fa-spin"></i> <span data-key="loading">Loading...</span>
+                        </div>
                     </form>
                     <p class="form-success" data-key="form_success">Message sent successfully!</p>
                 </div>
@@ -681,6 +720,7 @@
                 logout_button: "Logout",
                 message_cv_title: "Message CV",
                 received_messages_title: "Received Messages",
+                loading: "Loading...",
                 summary_title: "Summary",
                 summary_text: `Born: September 11, 1990, Bizerte, Tunisia<br>
 Position: Team Leader Technician (Injection Molding)<br><br>
@@ -695,7 +735,7 @@ My leadership is grounded in Lean Manufacturing principles, with a strong focus 
                 injection_title: "Injection Molding",
                 injection_text: "Mastered Engel, Demag Billion Dixi (150T-500T), and HUARONG presses for multi-component automotive parts. Optimized cycle times by 10% (2023), reduced defects by 15%, ensured IATF 16949:2016 compliance.",
                 lean_title: "Lean Manufacturing",
-                lean_text: "Applied 5S and Kaizen to reduce waste by 10%. Completed Lean Manufacturing certification (July 2025).",
+                lean_text: "Applied 5S and Kaizen to reduce waste by 10%. Completed Lean Manufacturing certification (July 2024).",
                 continuous_title: "Continuous Improvement",
                 continuous_text: "Improved efficiency by 20% via TRS and QRQC. Achieved 99.9% PPM compliance (2022). Proposed 15+ improvement actions yearly.",
                 experience_title: "Professional Experience",
@@ -766,6 +806,7 @@ My leadership is grounded in Lean Manufacturing principles, with a strong focus 
                 logout_button: "Déconnexion",
                 message_cv_title: "Message CV",
                 received_messages_title: "Messages reçus",
+                loading: "Chargement...",
                 summary_title: "Résumé",
                 summary_text: `Né le 11 septembre 1990, Bizerte, Tunisie<br>
 Position : Chef d'équipe technicien (moulage par injection)<br><br>
@@ -780,7 +821,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 injection_title: "Moulage par injection",
                 injection_text: "Maîtrise des presses Engel, Demag Billion Dixi (150T-500T) et HUARONG pour les pièces automobiles multicomposants. Optimisation des temps de cycle de 10% (2023), réduction des défauts de 15%, conformité à la norme IATF 16949:2016.",
                 lean_title: "Lean Manufacturing",
-                lean_text: "Application de 5S et Kaizen pour réduire les déchets de 10%. Certification Lean Manufacturing obtenue (juillet 2025).",
+                lean_text: "Application de 5S et Kaizen pour réduire les déchets de 10%. Certification Lean Manufacturing obtenue (juillet 2024).",
                 continuous_title: "Amélioration continue",
                 continuous_text: "Amélioration de l'efficacité de 20% via TRS et QRQC. Conformité PPM de 99,9% atteinte (2022). Proposition de plus de 15 actions d'amélioration par an.",
                 experience_title: "Expérience professionnelle",
@@ -851,6 +892,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 logout_button: "تسجيل الخروج",
                 message_cv_title: "رسالة السيرة الذاتية",
                 received_messages_title: "الرسائل المستلمة",
+                loading: "جاري التحميل...",
                 summary_title: "ملخص",
                 summary_text: `مواليد 11 سبتمبر 1990، بنزرت، تونس<br>
 المنصب: قائد فريق تقني (القولبة بالحقن)<br><br>
@@ -865,7 +907,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 injection_title: "القولبة بالحقن",
                 injection_text: "إتقان مكابس Engel وDemag Billion Dixi (150T-500T) وHUARONG لقطع السيارات متعددة المكونات. تحسين أوقات الدورة بنسبة 10% (2023)، تقليل العيوب بنسبة 15%، ضمان الامتثال لمعيار IATF 16949:2016.",
                 lean_title: "التصنيع الرشيق",
-                lean_text: "تطبيق 5S وKaizen لتقليل النفايات بنسبة 10%. حصلت على شهادة التصنيع الرشيق (يوليو 2025).",
+                lean_text: "تطبيق 5S وKaizen لتقليل النفايات بنسبة 10%. حصلت على شهادة التصنيع الرشيق (يوليو 2024).",
                 continuous_title: "التحسين المستمر",
                 continuous_text: "تحسين الكفاءة بنسبة 20% عبر TRS وQRQC. تحقيق امتثال PPM بنسبة 99.9% (2022). اقتراح أكثر من 15 إجراء تحسين سنويًا.",
                 experience_title: "الخبرة المهنية",
@@ -927,10 +969,12 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
 
         window.toggleSidebar = () => {
             const sidebar = document.querySelector('.sidebar');
+            const toggle = document.querySelector('.sidebar-toggle');
             const cvContainer = document.querySelector('.cv-container');
-            if (!sidebar) return;
+            if (!sidebar || !toggle) return;
             const isClosed = sidebar.classList.contains('closed');
             sidebar.classList.toggle('closed', !isClosed);
+            toggle.setAttribute('aria-expanded', isClosed);
             if (cvContainer && window.innerWidth > 768) {
                 cvContainer.style.marginLeft = isClosed ? '280px' : '0';
             }
@@ -951,12 +995,15 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
         window.showMessageCv = async () => {
             const loginForm = document.getElementById('login-form');
             const messageCv = document.getElementById('message-cv');
-            if (!loginForm || !messageCv) return;
+            const messagesLoader = document.getElementById('messages-loader');
+            if (!loginForm || !messageCv || !messagesLoader) return;
             if (auth.currentUser) {
                 loginForm.classList.remove('active');
                 messageCv.classList.add('active');
                 gsap.fromTo(messageCv, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+                messagesLoader.style.display = 'block';
                 await fetchReceivedMessages();
+                messagesLoader.style.display = 'none';
             } else {
                 alert(translations[currentLang]?.login_first || 'Please log in first!');
                 showLogin();
@@ -1005,12 +1052,14 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             const email = document.getElementById('login-email')?.value;
             const password = document.getElementById('login-password')?.value;
             const loginButton = document.querySelector('#login-form button[data-key="login_button"]');
-            if (!loginButton || !email || !password) {
+            const loginLoader = document.getElementById('login-loader');
+            if (!loginButton || !email || !password || !loginLoader) {
                 alert(translations[currentLang]?.login_failed || 'Login failed: Form elements missing or inputs empty.');
                 return;
             }
             loginButton.disabled = true;
             loginButton.textContent = translations[currentLang]?.logging_in || 'Logging in...';
+            loginLoader.style.display = 'block';
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 alert((translations[currentLang]?.logged_in || 'Logged in successfully as ') + userCredential.user.email + '!');
@@ -1028,6 +1077,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             } finally {
                 loginButton.disabled = false;
                 loginButton.textContent = translations[currentLang]?.login_button || 'Login';
+                loginLoader.style.display = 'none';
             }
         };
 
@@ -1068,12 +1118,19 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 const message = document.querySelector('#contact-form [name="message"]')?.value;
                 const formSuccess = document.querySelector('.form-success');
                 const submitButton = document.querySelector('#contact-form .submit-btn');
-                if (!name || !email || !message || !formSuccess || !submitButton) {
+                const formLoader = document.getElementById('form-loader');
+                if (!name || !email || !message || !formSuccess || !submitButton || !formLoader) {
                     alert(translations[currentLang]?.form_error || 'Failed to send message: Form elements missing or inputs empty.');
+                    return;
+                }
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert(translations[currentLang]?.invalid_email || 'Please enter a valid email address.');
                     return;
                 }
                 submitButton.disabled = true;
                 submitButton.textContent = translations[currentLang]?.sending || 'Sending...';
+                formLoader.style.display = 'block';
                 try {
                     await addDoc(collection(db, "contact_messages"), {
                         name: name,
@@ -1092,6 +1149,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 } finally {
                     submitButton.disabled = false;
                     submitButton.textContent = translations[currentLang]?.form_submit || 'Send Message';
+                    formLoader.style.display = 'none';
                 }
             });
         }
@@ -1152,7 +1210,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
         function createLeanElements() {
             const leanContainer = document.querySelector('.lean-elements');
             if (!leanContainer) return;
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 5; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'lean-particle';
                 particle.style.left = `${Math.random() * 100}vw`;
@@ -1162,8 +1220,51 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             }
         }
 
+        function initChart() {
+            const ctx = document.getElementById('improvement-chart')?.getContext('2d');
+            if (!ctx) return;
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        translations[currentLang]?.cycle_time || 'Cycle Time Optimization',
+                        translations[currentLang]?.defect_reduction || 'Defect Reduction',
+                        translations[currentLang]?.efficiency || 'Efficiency Improvement'
+                    ],
+                    datasets: [{
+                        label: translations[currentLang]?.improvement_label || 'Improvement (%)',
+                        data: [10, 15, 20],
+                        backgroundColor: ['#f97316', '#f59e0b', '#1e3a8a'],
+                        borderColor: ['#fff', '#fff', '#fff'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: translations[currentLang]?.percentage || 'Percentage (%)' }
+                        },
+                        x: {
+                            title: { display: true, text: translations[currentLang]?.metrics || 'Metrics' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: translations[currentLang]?.chart_title || 'Continuous Improvement Metrics' }
+                    },
+                    animation: {
+                        onComplete: () => {
+                            gsap.from('#improvement-chart', { opacity: 0, y: 20, duration: 0.8 });
+                        }
+                    }
+                }
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             createLeanElements();
+            initChart();
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     showMessageCv();
