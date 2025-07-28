@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive CV of Trabelsi Houssain, technicien in Injection Molding and Lean Manufacturing">
+    <meta name="description" content="Interactive CV of Trabelsi Houssine, expert in Injection Molding and Lean Manufacturing">
     <meta property="og:title" content="Trabelsi Houssine - Interactive CV">
-    <meta property="og:description" content="Explore the professional CV of Trabelsi Houssine, a seasoned expert in Injection Molding and Lean Manufacturing.">
-    <meta property="og:keywords" content="Trabelsi Houssine, CV, resume, Injection Molding, Lean Manufacturing, professional experience, automotive parts, WKW Tunisia">
+    <meta property="og:description" content="Explore the professional CV of Trabelsi Houssine, specializing in automotive parts production and Lean Manufacturing.">
+    <meta property="og:keywords" content="Trabelsi Houssine, CV, resume, Injection Molding, Lean Manufacturing, automotive parts, WKW Tunisia">
     <meta property="og:image" content="https://i.ibb.co/tgnKQzc/20230728-121604.png">
     <meta name="author" content="Trabelsi Houssine">
     <script type="application/ld+json">
@@ -14,7 +14,7 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Trabelsi Houssine",
-      "jobTitle": "Engineer",
+      "jobTitle": "Technician",
       "birthDate": "1990-09-11",
       "address": {
         "@type": "PostalAddress",
@@ -27,271 +27,248 @@
     }
     </script>
     <title>Trabelsi Houssine - Interactive CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <style>
-        body {
+        :root {
+            --primary-color: #1e3a8a;
+            --accent-color: #f97316;
+            --text-color: #1f2937;
+            --bg-color: #f8fafc;
+            --sidebar-bg: #1e293b;
+            --hover-color: #fb923c;
+            --gradient: linear-gradient(135deg, #f97316, #f59e0b);
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
-            color: #333;
-            overflow-x: hidden;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e2e8f0 100%);
-            background-size: 30px 30px;
-            background-image: 
-                linear-gradient(0deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-            position: relative;
-            display: flex;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background: var(--bg-color);
             min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+            line-height: 1.6;
         }
+
         body[lang="ar"] {
-            font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
             direction: rtl;
+            font-family: 'Poppins', 'Noto Sans Arabic', sans-serif;
         }
+
         .sidebar {
-            width: 250px;
-            background: rgba(45, 55, 72, 0.9);
+            width: 280px;
+            background: var(--sidebar-bg);
             color: #fff;
             height: 100vh;
             position: fixed;
             top: 0;
             left: 0;
-            padding: 2rem 1rem;
-            transition: transform 0.5s ease;
+            padding: 2rem;
+            transition: transform 0.4s ease;
             z-index: 1000;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
             overflow-y: auto;
-            max-height: 100vh;
         }
+
         .sidebar.closed {
             transform: translateX(-100%);
         }
+
         .sidebar-toggle {
-            background: #d4af37;
+            background: var(--accent-color);
             color: #fff;
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
             cursor: pointer;
-            margin-bottom: 1.5rem;
-            transition: background 0.3s, transform 0.3s;
             font-size: 1.2rem;
             position: fixed;
             top: 1rem;
             left: 1rem;
             z-index: 1001;
+            transition: all 0.3s ease;
         }
+
         .sidebar-toggle:hover {
-            background: #c99a2e;
-            transform: translateY(-2px);
+            background: var(--hover-color);
+            transform: scale(1.1);
         }
-        .sidebar-section {
-            margin-bottom: 1.5rem;
-        }
+
         .sidebar-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: #d4af37;
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
         }
+
         .sidebar-section a, .sidebar-section button {
             display: block;
-            width: 100%;
-            padding: 0.7rem;
-            background: #4a5568;
+            padding: 0.8rem;
+            background: #334155;
             color: #fff;
             text-decoration: none;
-            border-radius: 5px;
-            margin-bottom: 0.5rem;
-            transition: background 0.3s, transform 0.3s;
+            border-radius: 6px;
+            margin-bottom: 0.6rem;
+            transition: all 0.3s ease;
             font-size: 1rem;
-            text-align: left;
         }
+
         .sidebar-section a:hover, .sidebar-section button:hover {
-            background: #718096;
-            transform: translateX(5px);
+            background: var(--hover-color);
+            transform: translateX(8px);
         }
+
         .login-form, .message-cv {
             display: none;
             padding: 1rem;
             background: #fff;
-            color: #333;
-            border-radius: 5px;
-            font-size: 0.9rem;
+            color: var(--text-color);
+            border-radius: 8px;
             margin-top: 1rem;
-            max-height: 300px;
-            overflow-y: auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .login-form.active, .message-cv.active {
             display: block;
         }
+
         .login-form input {
             width: 100%;
-            padding: 0.5rem;
-            margin-bottom: 0.8rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
             font-size: 0.9rem;
         }
+
         .login-form button, .message-cv button {
-            background: #2d3748;
+            background: var(--primary-color);
             color: #fff;
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            padding: 0.7rem;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background 0.3s;
-            font-size: 0.9rem;
             width: 100%;
+            transition: all 0.3s ease;
         }
+
         .login-form button:hover, .message-cv button:hover {
-            background: #4a5568;
+            background: var(--hover-color);
         }
+
         .received-messages {
             margin-top: 1rem;
             padding: 1rem;
-            background: #edf2f7;
-            border-radius: 5px;
-            max-height: 200px;
-            overflow-y: auto;
+            background: #f1f5f9;
+            border-radius: 6px;
         }
+
         .received-messages h4 {
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
-            color: #2d3748;
+            font-size: 1.1rem;
+            color: var(--primary-color);
         }
+
         .message-item {
             padding: 0.8rem;
-            border-bottom: 1px solid #e0e0e0;
-            font-size: 0.85rem;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.9rem;
         }
+
         .message-item:last-child {
             border-bottom: none;
         }
+
         .message-item strong {
-            color: #d4af37;
+            color: var(--accent-color);
         }
-        .message-item p {
-            margin: 0.3rem 0;
-            color: #333;
-        }
+
         .message-item .timestamp {
-            font-size: 0.75rem;
-            color: #718096;
+            font-size: 0.8rem;
+            color: #6b7280;
         }
+
         .cv-container {
-            max-width: 950px;
-            margin-left: 250px;
+            max-width: 1000px;
+            margin-left: 280px;
             padding: 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            background: #fff;
             border-radius: 12px;
-            position: relative;
-            z-index: 1;
-            border: 2px solid #e0e0e0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             flex-grow: 1;
-            transition: margin-left 0.5s ease;
+            transition: margin-left 0.4s ease;
         }
+
         .hero-section {
             text-align: center;
-            padding: 2rem 0;
-            border-bottom: 3px dashed #d4af37;
+            padding: 3rem 0;
             position: relative;
+            background: var(--gradient);
+            border-radius: 10px;
             overflow: hidden;
         }
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: -60%;
-            left: -60%;
-            width: 220%;
-            height: 220%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-            animation: pulse 7s infinite ease-in-out;
-            z-index: 0;
-        }
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), transparent);
-            animation: shimmer 4s infinite linear;
-            z-index: 1;
-        }
+
         .hero-section img {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1.5rem;
-            border: 5px solid #d4af37;
-            transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
-            position: relative;
-            z-index: 2;
+            border: 4px solid #fff;
+            transition: all 0.5s ease;
         }
+
         .hero-section img:hover {
-            transform: scale(1.2) rotate(10deg);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-            filter: brightness(1.1);
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
+
         .hero-section h1 {
-            font-size: 2.5rem;
-            margin: 1rem 0;
-            color: #2d3748;
-            animation: slideInDown 1.2s ease-out;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
         }
+
         .hero-section p {
-            font-size: 1.1rem;
-            color: #718096;
-            margin: 1rem 0;
-            animation: fadeInUp 1.4s ease-out;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            font-size: 1.2rem;
+            color: #f3f4f6;
+            margin-bottom: 1.5rem;
         }
+
+        .lang-btns {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
         .lang-btn {
-            background: #edf2f7;
-            color: #2d3748;
+            background: #fff;
+            color: var(--primary-color);
             border: none;
             padding: 0.6rem 1.2rem;
-            margin: 0 0.3rem;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
             font-weight: 600;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
-        .lang-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(212, 175, 55, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        .lang-btn:hover::before {
-            width: 200%;
-            height: 200%;
-        }
+
         .lang-btn.active {
-            background: #2d3748;
+            background: var(--accent-color);
             color: #fff;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
         }
+
         .lang-btn:hover {
-            background: #e2e8f0;
-            transform: translateY(-4px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background: var(--hover-color);
+            color: #fff;
+            transform: translateY(-2px);
         }
+
         .contact-info {
             display: flex;
             flex-wrap: wrap;
@@ -299,267 +276,134 @@
             gap: 1rem;
             margin: 1.5rem 0;
         }
+
         .contact-info a {
-            color: #2d3748;
-            text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            background: #edf2f7;
-            border-radius: 8px;
-            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
-            font-weight: 600;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .contact-info a::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(212, 175, 55, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        .contact-info a:hover::before {
-            width: 200%;
-            height: 200%;
-        }
-        .contact-info a:hover {
-            background: #d4af37;
             color: #fff;
-            transform: translateY(-4px);
-            box-shadow: 0 6px 12px rgba(212, 175, 55, 0.4);
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
+
+        .contact-info a:hover {
+            background: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
         .section {
-            margin: 2.5rem 0;
-            border-bottom: 3px dashed #e0e0e0;
-            padding-bottom: 1.5rem;
-            position: relative;
+            margin: 2rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
         }
-        .section::before {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: #d4af37;
-            transition: width 0.6s ease;
-        }
-        .section:hover::before {
-            width: 100%;
-        }
+
         .section-title {
-            font-size: 1.7rem;
-            color: #2d3748;
-            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            transition: color 0.5s, transform 0.5s;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
         }
+
         .section-title:hover {
-            color: #d4af37;
-            transform: translateX(10px);
+            color: var(--accent-color);
         }
+
         .section-content {
             display: none;
-            padding: 1.2rem 0;
-            animation: slideIn 0.7s ease-out;
+            padding: 1rem 0;
+            font-size: 1rem;
+            color: #4b5563;
         }
+
         details[open] .section-content {
             display: block;
         }
+
         summary {
             cursor: pointer;
-            padding: 0.7rem;
-            background: #edf2f7;
-            border-radius: 8px;
-            margin-bottom: 0.7rem;
-            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
+            padding: 0.8rem;
+            background: #f1f5f9;
+            border-radius: 6px;
             font-weight: 600;
-            font-size: 1rem;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
-        summary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(212, 175, 55, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        summary:hover::before {
-            width: 200%;
-            height: 200%;
-        }
+
         summary:hover {
-            background: #e2e8f0;
-            transform: translateX(5px);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            background: var(--accent-color);
+            color: #fff;
         }
+
         .tasks-list {
             list-style: none;
-            padding-left: 0;
+            padding-left: 1rem;
         }
+
         .tasks-list li {
-            margin-bottom: 0.7rem;
-            transition: color 0.5s, transform 0.5s;
+            margin-bottom: 0.6rem;
             font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
         }
-        .tasks-list li:hover {
-            color: #d4af37;
-            transform: translateX(10px);
+
+        .tasks-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
         }
-        .toggle-btn {
-            background: #2d3748;
+
+        .toggle-btn, .download-btn, .print-btn, .submit-btn {
+            background: var(--primary-color);
             color: #fff;
             border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 8px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
             font-weight: 600;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
-        .toggle-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(212, 175, 55, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+
+        .toggle-btn:hover, .download-btn:hover, .print-btn:hover, .submit-btn:hover {
+            background: var(--hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        .toggle-btn:hover::before {
-            width: 200%;
-            height: 200%;
-        }
-        .toggle-btn:hover {
-            background: #4a5568;
-            transform: translateY(-4px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        }
-        .contact-form input,
-        .contact-form textarea {
+
+        .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 0.8rem;
-            margin-bottom: 1.2rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            background: #fff;
-            color: #333;
-            transition: border-color 0.5s, transform 0.5s, box-shadow 0.5s;
+            margin-bottom: 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
             font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: #d4af37;
-            transform: translateY(-4px);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(249, 115, 22, 0.3);
+            outline: none;
         }
+
         .contact-form textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 100px;
         }
-        .submit-btn {
-            background: #2d3748;
-            color: #fff;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
-            font-weight: 600;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(212, 175, 55, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        .submit-btn:hover::before {
-            width: 200%;
-            height: 200%;
-        }
-        .submit-btn:hover {
-            background: #4a5568;
-            transform: translateY(-4px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        }
+
         .form-success {
             display: none;
-            color: #2d3748;
             text-align: center;
             padding: 0.8rem;
-            margin-top: 1.2rem;
-            background: #edf2f7;
-            border-radius: 8px;
-            animation: bounceIn 0.7s ease-out;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 6px;
+            margin-top: 1rem;
         }
-        .download-btn,
-        .print-btn {
-            background: #2d3748;
-            color: #fff;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            margin: 0.5rem;
-            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
-            font-weight: 600;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .download-btn::before,
-        .print-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(212, 175, 55, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        .download-btn:hover::before,
-        .print-btn:hover::before {
-            width: 200%;
-            height: 200%;
-        }
-        .download-btn:hover,
-        .print-btn:hover {
-            background: #4a5568;
-            transform: translateY(-4px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        }
+
         .lean-elements {
             position: fixed;
             top: 0;
@@ -567,166 +411,81 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
+            z-index: -1;
         }
-        .lean-node {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: rgba(212, 175, 55, 0.5);
-            border-radius: 50%;
-            animation: pulseNode 5s infinite ease-in-out;
-            will-change: transform, opacity;
-        }
-        .lean-line {
-            position: absolute;
-            background: linear-gradient(45deg, rgba(212, 175, 55, 0.4), transparent);
-            height: 2px;
-            animation: flow 6s infinite linear;
-            will-change: transform;
-        }
+
         .lean-particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(212, 175, 55, 0.6);
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
             border-radius: 50%;
-            animation: burst 3s infinite ease-out;
-            will-change: transform, opacity;
+            opacity: 0.6;
+            animation: floatParticle 6s infinite ease-in-out;
         }
-        .lean-icon {
-            position: absolute;
-            font-size: 1.5rem;
-            color: rgba(212, 175, 55, 0.5);
-            animation: float 7s infinite ease-in-out;
-            will-change: transform;
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(-30px); opacity: 0.9; }
         }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.5); opacity: 0.8; }
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        @keyframes pulseNode {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.8); opacity: 0.9; }
-        }
-        @keyframes flow {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(100vw); }
-        }
-        @keyframes burst {
-            0% { transform: translate(0, 0); opacity: 0.6; }
-            100% { transform: translate(50px, 50px); opacity: 0; }
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        @keyframes slideInDown {
-            0% { opacity: 0; transform: translateY(-30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideIn {
-            0% { opacity: 0; transform: translateX(-20px); }
-            100% { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.3); }
-            50% { opacity: 1; transform: scale(1.05); }
-            70% { transform: scale(0.9); }
-            100% { transform: scale(1); }
-        }
+
         @media screen and (max-width: 1024px) {
             .cv-container {
-                margin-left: 200px;
+                margin-left: 220px;
                 padding: 1.5rem;
             }
             .sidebar {
-                width: 200px;
-            }
-            .hero-section h1 {
-                font-size: 2rem;
-            }
-            .hero-section img {
-                width: 150px;
-                height: 150px;
+                width: 220px;
             }
         }
+
         @media screen and (max-width: 768px) {
             .cv-container {
                 margin-left: 0;
                 padding: 1rem;
             }
             .sidebar {
-                width: 200px;
-            }
-            .sidebar-toggle {
-                display: block;
+                width: 100%;
+                max-width: 280px;
             }
             .hero-section h1 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
             }
             .hero-section img {
-                width: 120px;
-                height: 120px;
-            }
-            .section-title {
-                font-size: 1.5rem;
+                width: 140px;
+                height: 140px;
             }
         }
+
         @media screen and (max-width: 480px) {
             .hero-section h1 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             .hero-section p {
                 font-size: 1rem;
             }
-            .lang-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
-            .contact-info a {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
-            .section-title {
-                font-size: 1.3rem;
-            }
-            .download-btn, .print-btn, .submit-btn {
+            .lang-btn, .contact-info a, .toggle-btn, .download-btn, .print-btn, .submit-btn {
                 padding: 0.6rem 1rem;
-                font-size: 0.8rem;
+                font-size: 0.85rem;
             }
         }
+
         @media print {
             body {
                 background: #fff;
                 color: #000;
-                display: block;
             }
-            .sidebar, .lean-elements, .sidebar-toggle {
+            .sidebar, .lean-elements, .sidebar-toggle, .lang-btn, .download-btn, .print-btn, .submit-btn, .contact-form, .form-success {
                 display: none;
             }
             .cv-container {
                 margin-left: 0;
                 box-shadow: none;
-                border: none;
-                background: #fff;
                 padding: 1rem;
             }
-            .hero-section, .section, .section-content {
-                box-shadow: none;
+            .hero-section {
+                background: none;
                 border: none;
-            }
-            .lang-btn, .download-btn, .print-btn, .submit-btn, .toggle-btn, .contact-form, .form-success {
-                display: none;
             }
             .section-content {
                 display: block;
@@ -761,9 +520,9 @@
     </div>
     <div class="cv-container">
         <div class="hero-section">
-            <img src="https://i.ibb.co/tgnKQzc/20230728-121604.png" alt="Trabelsi Houssine Profile Picture" onerror="this.src='https://via.placeholder.com/180'">
+            <img src="https://i.ibb.co/tgnKQzc/20230728-121604.png" alt="Trabelsi Houssine Profile Picture" onerror="this.src='https://via.placeholder.com/160'">
             <h1 data-key="name">Trabelsi Houssine</h1>
-            <p data-key="title">Technicien in Injection Molding & Lean Manufacturing</p>
+            <p data-key="title">Technician in Injection Molding & Lean Manufacturing</p>
             <div class="lang-btns">
                 <button class="lang-btn active" data-lang="en" aria-label="Switch to English" role="button" tabindex="0" data-key="lang_en">English</button>
                 <button class="lang-btn" data-lang="fr" aria-label="Switch to French" role="button" tabindex="0" data-key="lang_fr">Français</button>
@@ -773,10 +532,10 @@
                 <a href="tel:+21622310333" aria-label="Phone Number">+216 22 310 333</a>
                 <a href="mailto:houssinetrabelsi6@gmail.com" aria-label="Email">houssinetrabelsi6@gmail.com</a>
                 <a href="https://www.linkedin.com/in/trabelsi-houssine-355332102" target="_blank" aria-label="LinkedIn Profile">LinkedIn</a>
-                <a href="https://www.linkedin.com/messaging/thread/new/?recipient=trabelsi-houssine-355332102" target="_blank" data-key="linkedin_message" aria-label="Message on LinkedIn">Message on LinkedIn</a>
+                <a href="https://www.linkedin.com/in/trabelsi-houssine-355332102" target="_blank" data-key="linkedin_message" aria-label="Message on LinkedIn">Message on LinkedIn</a>
             </div>
             <div class="actions">
-                <a href="https://drive.google.com/file/d/1--Jofaffz28z3p-aubSOgG-1KTVwRYED/view?usp=drivesdk" target="_blank" class="download-btn" data-key="download" aria-label="Download CV as PDF">Download CV</a>
+                <a href="https://1drv.ms/b/c/9bd9f0dbc8c8eac7/EVDcv_BuyBhHnPq9baBTA6AB60jaVhebrs5Y6OjyhsAusA?e=x3L4FI" target="_blank" class="download-btn" data-key="download" aria-label="Download CV as PDF">Download CV</a>
                 <button class="print-btn" data-key="print" aria-label="Print CV">Print CV</button>
             </div>
         </div>
@@ -786,11 +545,11 @@
                 <summary class="section-title"><i class="fas fa-user"></i> <span data-key="summary_title">Summary</span></summary>
                 <div class="section-content" data-key="summary_text">
                     Born: September 11, 1990, Bizerte, Tunisia<br>
-                    Position: Technicien d'amélioration continue AND Team Leader Technician (Injection Molding)<br><br>
-                    With over 14 years of experience at WKW Tunisia, I am a seasoned professional in injection molding, specializing in the production of high-quality automotive parts. As a Chef d'Équipe Technicien, I have honed expertise in operating and optimizing advanced injection molding presses, including Engel, Demag Billion, and HUARONG, ensuring precision and efficiency in manufacturing processes.<br><br>
+                    Position: Team Leader Technician (Injection Molding)<br><br>
+                    With over 14 years of experience at WKW Tunisia, I am a seasoned professional in injection molding, specializing in the production of high-quality automotive parts. As a Team Leader Technician, I have honed expertise in operating and optimizing advanced injection molding presses, including Engel, Demag Billion, and HUARONG, ensuring precision and efficiency in manufacturing processes.<br><br>
                     My leadership is grounded in Lean Manufacturing principles, with a strong focus on 5S, Kaizen, Gemba, and on-the-job training, driving operational excellence and team performance. I have a proven track record in continuous improvement, achieving an exceptional 99.9% Parts Per Million (PPM) quality rate. Certified in Sepro Robotics and Industrial Safety, I prioritize automation, safety, and quality in all operations.<br><br>
                     <strong>Key Strengths:</strong><br>
-                    -technicien in injection molding for automotive components<br>
+                    - Expert in injection molding for automotive components<br>
                     - Proficient in Engel, Demag Billion, and HUARONG press operations<br>
                     - Lean Manufacturing implementation (5S, Kaizen, Gemba)<br>
                     - Continuous improvement with a 99.9% PPM quality achievement<br>
@@ -888,13 +647,11 @@
     </div>
 
     <script type="module">
-        // Import Firebase SDKs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
         import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
         import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBWGCl2CSrFc9ca3UH_KX0r36RRZJ9BvGg",
             authDomain: "cv-trabelsi.firebaseapp.com",
@@ -905,17 +662,15 @@
             measurementId: "G-H58T1VN17E"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // Translations object
         const translations = {
             en: {
                 name: "Trabelsi Houssine",
-                title: " Technicien Injection Molding & Lean Manufacturing",
+                title: "Technician in Injection Molding & Lean Manufacturing",
                 navigation_title: "Navigation",
                 message_cv: "Message CV",
                 contact_us: "Contact Us",
@@ -928,11 +683,11 @@
                 received_messages_title: "Received Messages",
                 summary_title: "Summary",
                 summary_text: `Born: September 11, 1990, Bizerte, Tunisia<br>
-Position: Technicien d'amélioration continue AND Team Leader Technician (Injection Molding)<br><br>
-With over 14 years of experience at WKW Tunisia, I am a seasoned professional in injection molding, specializing in the production of high-quality automotive parts. As a Chef d'Équipe Technicien, I have honed expertise in operating and optimizing advanced injection molding presses, including Engel, Demag Billion, and HUARONG, ensuring precision and efficiency in manufacturing processes.<br><br>
+Position: Team Leader Technician (Injection Molding)<br><br>
+With over 14 years of experience at WKW Tunisia, I am a seasoned professional in injection molding, specializing in the production of high-quality automotive parts. As a Team Leader Technician, I have honed expertise in operating and optimizing advanced injection molding presses, including Engel, Demag Billion, and HUARONG, ensuring precision and efficiency in manufacturing processes.<br><br>
 My leadership is grounded in Lean Manufacturing principles, with a strong focus on 5S, Kaizen, Gemba, and on-the-job training, driving operational excellence and team performance. I have a proven track record in continuous improvement, achieving an exceptional 99.9% Parts Per Million (PPM) quality rate. Certified in Sepro Robotics and Industrial Safety, I prioritize automation, safety, and quality in all operations.<br><br>
 <strong>Key Strengths:</strong><br>
-- technicien in injection molding for automotive components<br>
+- Expert in injection molding for automotive components<br>
 - Proficient in Engel, Demag Billion, and HUARONG press operations<br>
 - Lean Manufacturing implementation (5S, Kaizen, Gemba)<br>
 - Continuous improvement with a 99.9% PPM quality achievement<br>
@@ -1000,7 +755,7 @@ My leadership is grounded in Lean Manufacturing principles, with a strong focus 
             },
             fr: {
                 name: "Trabelsi Houssine",
-                title: "technicien en moulage par injection et Lean Manufacturing",
+                title: "Technicien en moulage par injection et Lean Manufacturing",
                 navigation_title: "Navigation",
                 message_cv: "Message CV",
                 contact_us: "Contactez-nous",
@@ -1017,7 +772,7 @@ Position : Chef d'équipe technicien (moulage par injection)<br><br>
 Avec plus de 14 ans d'expérience chez WKW Tunisie, je suis un professionnel chevronné en moulage par injection, spécialisé dans la production de pièces automobiles de haute qualité. En tant que Chef d'Équipe Technicien, j'ai perfectionné mon expertise dans l'opération et l'optimisation de presses à injection avancées, incluant Engel, Demag Billion et HUARONG, garantissant précision et efficacité dans les processus de fabrication.<br><br>
 Mon leadership repose sur les principes du Lean Manufacturing, avec un accent particulier sur le 5S, Kaizen, Gemba et la formation sur le terrain, favorisant l'excellence opérationnelle et la performance d'équipe. J'ai un historique prouvé d'amélioration continue, atteignant un taux de qualité exceptionnel de 99,9 % PPM. Certifié en robotique Sepro et en sécurité industrielle, je privilégie l'automatisation, la sécurité et la qualité dans toutes les opérations.<br><br>
 <strong>Points forts :</strong><br>
-- technicien en moulage par injection pour les composants automobiles<br>
+- Expert en moulage par injection pour les composants automobiles<br>
 - Maîtrise des opérations de presses Engel, Demag Billion et HUARONG<br>
 - Mise en œuvre du Lean Manufacturing (5S, Kaizen, Gemba)<br>
 - Amélioration continue avec un taux de qualité PPM de 99,9 %<br>
@@ -1170,20 +925,17 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             }
         };
 
-        // Sidebar and Authentication Functions
         window.toggleSidebar = () => {
             const sidebar = document.querySelector('.sidebar');
             const cvContainer = document.querySelector('.cv-container');
-            if (!sidebar) {
-                console.error('Sidebar not found');
-                return;
-            }
+            if (!sidebar) return;
             const isClosed = sidebar.classList.contains('closed');
             sidebar.classList.toggle('closed', !isClosed);
             if (cvContainer && window.innerWidth > 768) {
-                cvContainer.style.marginLeft = isClosed ? '250px' : '0';
+                cvContainer.style.marginLeft = isClosed ? '280px' : '0';
             }
             localStorage.setItem('sidebarState', isClosed ? 'open' : 'closed');
+            gsap.to(sidebar, { x: isClosed ? 0 : '-100%', duration: 0.4, ease: "power2.out" });
         };
 
         window.showLogin = () => {
@@ -1192,21 +944,18 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             if (loginForm && messageCv) {
                 loginForm.classList.add('active');
                 messageCv.classList.remove('active');
-            } else {
-                console.error('Login form or Message CV form not found');
+                gsap.fromTo(loginForm, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
             }
         };
 
         window.showMessageCv = async () => {
             const loginForm = document.getElementById('login-form');
             const messageCv = document.getElementById('message-cv');
-            if (!loginForm || !messageCv) {
-                console.error('Login form or Message CV form not found');
-                return;
-            }
+            if (!loginForm || !messageCv) return;
             if (auth.currentUser) {
                 loginForm.classList.remove('active');
                 messageCv.classList.add('active');
+                gsap.fromTo(messageCv, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
                 await fetchReceivedMessages();
             } else {
                 alert(translations[currentLang]?.login_first || 'Please log in first!');
@@ -1216,10 +965,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
 
         async function fetchReceivedMessages() {
             const messagesList = document.getElementById('messages-list');
-            if (!messagesList) {
-                console.error('Messages list container not found');
-                return;
-            }
+            if (!messagesList) return;
             messagesList.innerHTML = '';
             try {
                 const q = query(collection(db, 'contact_messages'), orderBy('timestamp', 'desc'));
@@ -1239,9 +985,9 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                         <p class="timestamp">${new Date(data.timestamp.toDate()).toLocaleString()}</p>
                     `;
                     messagesList.appendChild(messageItem);
+                    gsap.from(messageItem, { opacity: 0, y: 10, duration: 0.5, delay: 0.2 });
                 });
             } catch (error) {
-                console.error('Error fetching messages:', error);
                 messagesList.innerHTML = `<p>${translations[currentLang]?.message_failed || 'Error fetching messages: '} ${error.message}</p>`;
             }
         }
@@ -1251,8 +997,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             if (contactSection) {
                 contactSection.querySelector('details').open = true;
                 contactSection.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                console.error('Contact section not found');
+                gsap.from(contactSection.querySelector('.section-content'), { opacity: 0, y: 20, duration: 0.5 });
             }
         };
 
@@ -1261,7 +1006,6 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             const password = document.getElementById('login-password')?.value;
             const loginButton = document.querySelector('#login-form button[data-key="login_button"]');
             if (!loginButton || !email || !password) {
-                console.error('Login form elements not found or inputs empty');
                 alert(translations[currentLang]?.login_failed || 'Login failed: Form elements missing or inputs empty.');
                 return;
             }
@@ -1289,10 +1033,7 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
 
         window.logout = async () => {
             const logoutButtons = document.querySelectorAll('button[data-key="logout_button"]');
-            if (!logoutButtons.length) {
-                console.error('Logout button not found');
-                return;
-            }
+            if (!logoutButtons.length) return;
             logoutButtons.forEach(button => {
                 button.disabled = true;
                 button.textContent = translations[currentLang]?.logging_out || 'Logging out...';
@@ -1311,7 +1052,6 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             }
         };
 
-        // Contact Form Submission
         let lastSubmission = 0;
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
@@ -1329,7 +1069,6 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 const formSuccess = document.querySelector('.form-success');
                 const submitButton = document.querySelector('#contact-form .submit-btn');
                 if (!name || !email || !message || !formSuccess || !submitButton) {
-                    console.error('Contact form elements not found or inputs empty');
                     alert(translations[currentLang]?.form_error || 'Failed to send message: Form elements missing or inputs empty.');
                     return;
                 }
@@ -1344,13 +1083,12 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                     });
                     formSuccess.style.display = 'block';
                     contactForm.reset();
+                    gsap.fromTo(formSuccess, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5 });
                     setTimeout(() => {
-                        formSuccess.style.display = 'none';
+                        gsap.to(formSuccess, { opacity: 0, duration: 0.5, onComplete: () => formSuccess.style.display = 'none' });
                     }, 3000);
                 } catch (error) {
-                    let errorMessage = translations[currentLang]?.form_error || 'Failed to send message: ';
-                    errorMessage += error.message;
-                    alert(errorMessage);
+                    alert((translations[currentLang]?.form_error || 'Failed to send message: ') + error.message);
                 } finally {
                     submitButton.disabled = false;
                     submitButton.textContent = translations[currentLang]?.form_submit || 'Send Message';
@@ -1358,7 +1096,6 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             });
         }
 
-        // Language Toggle
         const langButtons = document.querySelectorAll('.lang-btn');
         let currentLang = localStorage.getItem('lang') || 'en';
 
@@ -1379,21 +1116,23 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             }
         }
 
-        langButtons.forEach(btn => btn.addEventListener('click', () => setLanguage(btn.dataset.lang)));
+        langButtons.forEach(btn => btn.addEventListener('click', () => {
+            setLanguage(btn.dataset.lang);
+            gsap.from('.cv-container', { opacity: 0, duration: 0.5 });
+        }));
         setLanguage(currentLang);
 
-        // Accordion Behavior
         document.querySelectorAll('details').forEach(details => {
             details.addEventListener('toggle', () => {
                 if (details.open) {
                     document.querySelectorAll('details').forEach(other => {
                         if (other !== details) other.removeAttribute('open');
                     });
+                    gsap.from(details.querySelector('.section-content'), { opacity: 0, y: 20, duration: 0.5 });
                 }
             });
         });
 
-        // Toggle Tasks
         const toggleBtn = document.querySelector('.toggle-btn');
         if (toggleBtn) {
             toggleBtn.addEventListener('click', () => {
@@ -1401,66 +1140,29 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 const isHidden = hiddenTasks[0]?.style.display === 'none' || !hiddenTasks[0]?.style.display;
                 hiddenTasks.forEach(task => task.style.display = isHidden ? 'list-item' : 'none');
                 toggleBtn.textContent = translations[currentLang][isHidden ? 'show_less' : 'show_more'];
+                gsap.from(hiddenTasks, { opacity: 0, y: 10, duration: 0.5, stagger: 0.1 });
             });
         }
 
-        // Print CV
         const printBtn = document.querySelector('.print-btn');
         if (printBtn) {
             printBtn.addEventListener('click', () => window.print());
         }
 
-        // Enhanced Lean Background Elements
         function createLeanElements() {
             const leanContainer = document.querySelector('.lean-elements');
-            if (!leanContainer) {
-                console.error('Lean elements container not found');
-                return;
-            }
+            if (!leanContainer) return;
             for (let i = 0; i < 10; i++) {
-                const node = document.createElement('div');
-                node.className = 'lean-node';
-                node.style.left = `${Math.random() * 100}vw`;
-                node.style.top = `${Math.random() * 100}vh`;
-                node.style.animationDelay = `${Math.random() * 3}s`;
-                leanContainer.appendChild(node);
-            }
-            for (let i = 0; i < 3; i++) {
-                const line = document.createElement('div');
-                line.className = 'lean-line';
-                line.style.left = `${i * 20}%`;
-                line.style.top = `${Math.random() * 100}vh`;
-                line.style.width = '100vw';
-                line.style.animationDuration = `${5 + Math.random() * 3}s`;
-                line.style.animationDelay = `${i * 1}s`;
-                leanContainer.appendChild(line);
-            }
-            for (let i = 0; i < 5; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'lean-particle';
                 particle.style.left = `${Math.random() * 100}vw`;
                 particle.style.top = `${Math.random() * 100}vh`;
-                particle.style.animationDelay = `${Math.random() * 2}s`;
+                particle.style.animationDelay = `${Math.random() * 3}s`;
                 leanContainer.appendChild(particle);
-            }
-            const icons = ['fas fa-cogs', 'fas fa-check', 'fas fa-chart-line', 'fas fa-tools'];
-            for (let i = 0; i < 4; i++) {
-                const icon = document.createElement('i');
-                icon.className = `lean-icon ${icons[Math.floor(Math.random() * icons.length)]}`;
-                icon.style.left = `${Math.random() * 100}vw`;
-                icon.style.top = `${Math.random() * 100}vh`;
-                icon.style.animationDelay = `${Math.random() * 4}s`;
-                leanContainer.appendChild(icon);
             }
         }
 
-          // Initialize after DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
-            const sidebar = document.querySelector('.sidebar');
-            if (!sidebar) {
-                console.error('Sidebar not found during initialization');
-                return;
-            }
             createLeanElements();
             onAuthStateChanged(auth, (user) => {
                 if (user) {
@@ -1473,16 +1175,15 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
             if (sidebarState === 'open' && window.innerWidth > 768) {
                 toggleSidebar();
             }
+            gsap.from('.hero-section', { opacity: 0, scale: 0.9, duration: 1, ease: "power3.out" });
+            gsap.from('.hero-section img', { opacity: 0, y: -50, duration: 0.8, delay: 0.2 });
+            gsap.from('.hero-section h1', { opacity: 0, y: 30, duration: 0.8, delay: 0.4 });
+            gsap.from('.hero-section p', { opacity: 0, y: 30, duration: 0.8, delay: 0.6 });
+            gsap.from('.lang-btns .lang-btn', { opacity: 0, y: 20, duration: 0.6, delay: 0.8, stagger: 0.1 });
+            gsap.from('.contact-info a', { opacity: 0, y: 20, duration: 0.6, delay: 1, stagger: 0.1 });
+            gsap.from('.actions', { opacity: 0, y: 20, duration: 0.6, delay: 1.2 });
+            gsap.from('.section', { opacity: 0, x: -30, duration: 0.8, stagger: 0.2, delay: 1.4 });
         });
-
-        // GSAP Animations
-        gsap.from('.hero-section', { opacity: 0, scale: 0.7, duration: 1.5, ease: "elastic.out(1, 0.3)" });
-        gsap.from('.hero-section h1', { opacity: 0, y: 40, duration: 1.2, delay: 0.2, ease: "power3.out" });
-        gsap.from('.hero-section p', { opacity: 0, y: 40, duration: 1.2, delay: 0.4, ease: "power3.out" });
-        gsap.from('.lang-btns', { opacity: 0, y: 30, duration: 1, delay: 0.6, stagger: 0.15, ease: "power2.out" });
-        gsap.from('.contact-info a', { opacity: 0, y: 30, duration: 1, delay: 0.9, stagger: 0.15, ease: "power2.out" });
-        gsap.from('.actions', { opacity: 0, y: 30, duration: 1, delay: 1.2, ease: "power2.out" });
-        gsap.from('.section', { opacity: 0, x: -60, duration: 1, stagger: 0.25, delay: 1.5, ease: "power3.out" });
     </script>
 </body>
 </html>
