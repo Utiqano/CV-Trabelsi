@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive CV of Trabelsi Houssine, expert in Injection Molding and Lean Manufacturing">
+    <meta name="description" content="Interactive CV of Trabelsi Houssain, technicien in Injection Molding and Lean Manufacturing">
     <meta property="og:title" content="Trabelsi Houssine - Interactive CV">
-    <meta property="og:description" content="Explore the professional CV of Trabelsi Houssine, specializing in automotive parts production and Lean Manufacturing.">
-    <meta property="og:keywords" content="Trabelsi Houssine, CV, resume, Injection Molding, Lean Manufacturing, automotive parts, WKW Tunisia">
+    <meta property="og:description" content="Explore the professional CV of Trabelsi Houssine, a seasoned expert in Injection Molding and Lean Manufacturing.">
+    <meta property="og:keywords" content="Trabelsi Houssine, CV, resume, Injection Molding, Lean Manufacturing, professional experience, automotive parts, WKW Tunisia">
     <meta property="og:image" content="https://i.ibb.co/tgnKQzc/20230728-121604.png">
     <meta name="author" content="Trabelsi Houssine">
     <script type="application/ld+json">
@@ -14,7 +14,7 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Trabelsi Houssine",
-      "jobTitle": "Technician",
+      "jobTitle": "Engineer",
       "birthDate": "1990-09-11",
       "address": {
         "@type": "PostalAddress",
@@ -27,285 +27,271 @@
     }
     </script>
     <title>Trabelsi Houssine - Interactive CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <style>
-        :root {
-            --primary-color: #1e3a8a;
-            --accent-color: #f97316;
-            --text-color: #1f2937;
-            --bg-color: #f8fafc;
-            --sidebar-bg: #1e293b;
-            --hover-color: #fb923c;
-            --gradient: linear-gradient(135deg, #f97316, #f59e0b);
-            --gradient-anim: linear-gradient(135deg, #f97316 0%, #f59e0b 50%, #f97316 100%);
-        }
-
-        * {
-            box-sizing: border-box;
+        body {
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-color);
-            background: var(--bg-color);
-            min-height: 100vh;
-            display: flex;
+            font-family: 'Inter', sans-serif;
+            color: #333;
             overflow-x: hidden;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e2e8f0 100%);
+            background-size: 30px 30px;
+            background-image: 
+                linear-gradient(0deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            position: relative;
+            display: flex;
+            min-height: 100vh;
         }
-
         body[lang="ar"] {
+            font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
             direction: rtl;
-            font-family: 'Poppins', 'Noto Sans Arabic', sans-serif;
         }
-
         .sidebar {
-            width: 280px;
-            background: var(--sidebar-bg);
+            width: 250px;
+            background: rgba(45, 55, 72, 0.9);
             color: #fff;
             height: 100vh;
             position: fixed;
             top: 0;
             left: 0;
-            padding: 2rem;
-            transition: transform 0.4s ease;
+            padding: 2rem 1rem;
+            transition: transform 0.5s ease;
             z-index: 1000;
-            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
             overflow-y: auto;
+            max-height: 100vh;
         }
-
         .sidebar.closed {
             transform: translateX(-100%);
         }
-
         .sidebar-toggle {
-            background: var(--accent-color);
+            background: #d4af37;
             color: #fff;
             border: none;
-            padding: 0.6rem 1rem;
-            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
             cursor: pointer;
+            margin-bottom: 1.5rem;
+            transition: background 0.3s, transform 0.3s;
             font-size: 1.2rem;
             position: fixed;
             top: 1rem;
             left: 1rem;
             z-index: 1001;
-            transition: all 0.3s ease;
         }
-
         .sidebar-toggle:hover {
-            background: var(--hover-color);
-            transform: scale(1.1);
+            background: #c99a2e;
+            transform: translateY(-2px);
         }
-
-        .sidebar-toggle:focus {
-            outline: 2px solid #fff;
-            outline-offset: 2px;
+        .sidebar-section {
+            margin-bottom: 1.5rem;
         }
-
         .sidebar-section h3 {
-            font-size: 1.3rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #d4af37;
         }
-
         .sidebar-section a, .sidebar-section button {
             display: block;
-            padding: 0.8rem;
-            background: #334155;
+            width: 100%;
+            padding: 0.7rem;
+            background: #4a5568;
             color: #fff;
             text-decoration: none;
-            border-radius: 6px;
-            margin-bottom: 0.6rem;
-            transition: all 0.3s ease;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+            transition: background 0.3s, transform 0.3s;
             font-size: 1rem;
+            text-align: left;
         }
-
         .sidebar-section a:hover, .sidebar-section button:hover {
-            background: var(--hover-color);
-            transform: translateX(8px);
+            background: #718096;
+            transform: translateX(5px);
         }
-
-        .sidebar-section a:focus, .sidebar-section button:focus {
-            outline: 2px solid #fff;
-            outline-offset: 2px;
-        }
-
         .login-form, .message-cv {
             display: none;
             padding: 1rem;
             background: #fff;
-            color: var(--text-color);
-            border-radius: 8px;
+            color: #333;
+            border-radius: 5px;
+            font-size: 0.9rem;
             margin-top: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-height: 300px;
+            overflow-y: auto;
         }
-
         .login-form.active, .message-cv.active {
             display: block;
         }
-
         .login-form input {
             width: 100%;
-            padding: 0.7rem;
-            margin-bottom: 1rem;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
+            padding: 0.5rem;
+            margin-bottom: 0.8rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
             font-size: 0.9rem;
         }
-
-        .login-form input:focus {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
-        }
-
         .login-form button, .message-cv button {
-            background: var(--primary-color);
+            background: #2d3748;
             color: #fff;
             border: none;
-            padding: 0.7rem;
-            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background 0.3s;
+            font-size: 0.9rem;
             width: 100%;
-            transition: all 0.3s ease;
         }
-
         .login-form button:hover, .message-cv button:hover {
-            background: var(--hover-color);
+            background: #4a5568;
         }
-
-        .login-form button:focus, .message-cv button:focus {
-            outline: 2px solid #fff;
-            outline-offset: 2px;
-        }
-
         .received-messages {
             margin-top: 1rem;
             padding: 1rem;
-            background: #f1f5f9;
-            border-radius: 6px;
+            background: #edf2f7;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
         }
-
         .received-messages h4 {
-            font-size: 1.1rem;
-            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: #2d3748;
         }
-
         .message-item {
             padding: 0.8rem;
-            border-bottom: 1px solid #e5e7eb;
-            font-size: 0.9rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.85rem;
         }
-
         .message-item:last-child {
             border-bottom: none;
         }
-
         .message-item strong {
-            color: var(--accent-color);
+            color: #d4af37;
         }
-
+        .message-item p {
+            margin: 0.3rem 0;
+            color: #333;
+        }
         .message-item .timestamp {
-            font-size: 0.8rem;
-            color: #6b7280;
+            font-size: 0.75rem;
+            color: #718096;
         }
-
         .cv-container {
-            max-width: 1000px;
-            margin-left: 280px;
+            max-width: 950px;
+            margin-left: 250px;
             padding: 2rem;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            border: 2px solid #e0e0e0;
             flex-grow: 1;
-            transition: margin-left 0.4s ease;
+            transition: margin-left 0.5s ease;
         }
-
         .hero-section {
             text-align: center;
-            padding: 3rem 0;
+            padding: 2rem 0;
+            border-bottom: 3px dashed #d4af37;
             position: relative;
-            background: var(--gradient-anim);
-            border-radius: 10px;
             overflow: hidden;
-            animation: gradientShift 8s ease infinite;
-            background-size: 200% 200%;
         }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -60%;
+            width: 220%;
+            height: 220%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            animation: pulse 7s infinite ease-in-out;
+            z-index: 0;
         }
-
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 4s infinite linear;
+            z-index: 1;
+        }
         .hero-section img {
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1.5rem;
-            border: 4px solid #fff;
-            transition: all 0.5s ease;
+            border: 5px solid #d4af37;
+            transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
+            position: relative;
+            z-index: 2;
         }
-
         .hero-section img:hover {
-            transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            filter: brightness(1.1);
         }
-
         .hero-section h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            color: #2d3748;
+            animation: slideInDown 1.2s ease-out;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
         .hero-section p {
-            font-size: 1.2rem;
-            color: #f3f4f6;
-            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #718096;
+            margin: 1rem 0;
+            animation: fadeInUp 1.4s ease-out;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
-
-        .lang-btns {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
         .lang-btn {
-            background: #fff;
-            color: var(--primary-color);
+            background: #edf2f7;
+            color: #2d3748;
             border: none;
             padding: 0.6rem 1.2rem;
-            border-radius: 6px;
+            margin: 0 0.3rem;
+            border-radius: 8px;
             cursor: pointer;
+            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
             font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
         }
-
+        .lang-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .lang-btn:hover::before {
+            width: 200%;
+            height: 200%;
+        }
         .lang-btn.active {
-            background: var(--accent-color);
+            background: #2d3748;
             color: #fff;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
         }
-
         .lang-btn:hover {
-            background: var(--hover-color);
-            color: #fff;
-            transform: translateY(-2px);
+            background: #e2e8f0;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
-
-        .lang-btn:focus {
-            outline: 2px solid #fff;
-            outline-offset: 2px;
-        }
-
         .contact-info {
             display: flex;
             flex-wrap: wrap;
@@ -313,191 +299,267 @@
             gap: 1rem;
             margin: 1.5rem 0;
         }
-
         .contact-info a {
-            color: #fff;
+            color: #2d3748;
             text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            background: var(--hover-color);
-            transform: translateY(-2px);
-        }
-
-        .contact-info a:focus {
-            outline: 2px solid #fff;
-            outline-offset: 2px;
-        }
-
-        .section {
-            margin: 2rem 0;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #e5e7eb;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
+            padding: 0.6rem 1.2rem;
+            background: #edf2f7;
+            border-radius: 8px;
+            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
             font-weight: 600;
-            color: var(--primary-color);
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-info a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .contact-info a:hover::before {
+            width: 200%;
+            height: 200%;
+        }
+        .contact-info a:hover {
+            background: #d4af37;
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(212, 175, 55, 0.4);
+        }
+        .section {
+            margin: 2.5rem 0;
+            border-bottom: 3px dashed #e0e0e0;
+            padding-bottom: 1.5rem;
+            position: relative;
+        }
+        .section::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #d4af37;
+            transition: width 0.6s ease;
+        }
+        .section:hover::before {
+            width: 100%;
+        }
+        .section-title {
+            font-size: 1.7rem;
+            color: #2d3748;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: color 0.5s ease;
+            gap: 0.6rem;
+            transition: color 0.5s, transform 0.5s;
         }
-
         .section-title:hover {
-            color: var(--accent-color);
+            color: #d4af37;
+            transform: translateX(10px);
         }
-
-        .section-title i:hover {
-            transform: rotate(360deg);
-            transition: transform 0.5s ease;
-        }
-
-        .section-title.in-view {
-            color: var(--accent-color);
-        }
-
         .section-content {
             display: none;
-            padding: 1rem 0;
-            font-size: 1rem;
-            color: #4b5563;
+            padding: 1.2rem 0;
+            animation: slideIn 0.7s ease-out;
         }
-
         details[open] .section-content {
             display: block;
         }
-
         summary {
             cursor: pointer;
-            padding: 0.8rem;
-            background: #f1f5f9;
-            border-radius: 6px;
+            padding: 0.7rem;
+            background: #edf2f7;
+            border-radius: 8px;
+            margin-bottom: 0.7rem;
+            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
             font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
         }
-
+        summary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        summary:hover::before {
+            width: 200%;
+            height: 200%;
+        }
         summary:hover {
-            background: var(--accent-color);
-            color: #fff;
+            background: #e2e8f0;
+            transform: translateX(5px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
-
-        summary:focus {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
-        }
-
         .tasks-list {
             list-style: none;
-            padding-left: 1rem;
+            padding-left: 0;
         }
-
         .tasks-list li {
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.7rem;
+            transition: color 0.5s, transform 0.5s;
             font-size: 0.95rem;
+        }
+        .tasks-list li:hover {
+            color: #d4af37;
+            transform: translateX(10px);
+        }
+        .toggle-btn {
+            background: #2d3748;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
+            font-weight: 600;
+            font-size: 0.9rem;
             position: relative;
-            padding-left: 1.5rem;
+            overflow: hidden;
         }
-
-        .tasks-list li::before {
-            content: "•";
-            color: var(--accent-color);
+        .toggle-btn::before {
+            content: '';
             position: absolute;
-            left: 0;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
-
-        .toggle-btn, .download-btn, .print-btn, .submit-btn {
-            background: var(--primary-color);
+        .toggle-btn:hover::before {
+            width: 200%;
+            height: 200%;
+        }
+        .toggle-btn:hover {
+            background: #4a5568;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+            color: #333;
+            transition: border-color 0.5s, transform 0.5s, box-shadow 0.5s;
+            font-size: 0.9rem;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #d4af37;
+            transform: translateY(-4px);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .submit-btn {
+            background: #2d3748;
             color: #fff;
             border: none;
             padding: 0.8rem 1.5rem;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
+            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
             font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .toggle-btn:hover, .download-btn:hover, .print-btn:hover, .submit-btn:hover {
-            background: var(--hover-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .toggle-btn:focus, .download-btn:focus, .print-btn:focus, .submit-btn:focus {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 8px rgba(249, 115, 22, 0.3);
-            outline: none;
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
-
-        .contact-form input:invalid:not(:placeholder-shown), .contact-form textarea:invalid:not(:placeholder-shown) {
-            border-color: #ef4444;
+        .submit-btn:hover::before {
+            width: 200%;
+            height: 200%;
         }
-
-        .contact-form input:valid:not(:placeholder-shown) {
-            border-color: #10b981;
+        .submit-btn:hover {
+            background: #4a5568;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
-
-        .contact-form .input-error {
-            color: #ef4444;
-            font-size: 0.8rem;
-            margin-top: -0.8rem;
-            margin-bottom: 1rem;
-            display: none;
-        }
-
-        .contact-form .input-error.active {
-            display: block;
-        }
-
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
         .form-success {
             display: none;
+            color: #2d3748;
             text-align: center;
             padding: 0.8rem;
-            background: #dcfce7;
-            color: #166534;
-            border-radius: 6px;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
+            background: #edf2f7;
+            border-radius: 8px;
+            animation: bounceIn 0.7s ease-out;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-
-        .loader {
-            display: none;
-            text-align: center;
-            padding: 1rem;
-            color: var(--primary-color);
-            font-size: 1rem;
+        .download-btn,
+        .print-btn {
+            background: #2d3748;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
         }
-
-        .loader i {
-            font-size: 1.5rem;
-            margin-right: 0.5rem;
+        .download-btn::before,
+        .print-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
-
+        .download-btn:hover::before,
+        .print-btn:hover::before {
+            width: 200%;
+            height: 200%;
+        }
+        .download-btn:hover,
+        .print-btn:hover {
+            background: #4a5568;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
         .lean-elements {
             position: fixed;
             top: 0;
@@ -505,106 +567,181 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: -1;
+            z-index: 0;
+            overflow: hidden;
         }
-
+        .lean-node {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(212, 175, 55, 0.5);
+            border-radius: 50%;
+            animation: pulseNode 5s infinite ease-in-out;
+            will-change: transform, opacity;
+        }
+        .lean-line {
+            position: absolute;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.4), transparent);
+            height: 2px;
+            animation: flow 6s infinite linear;
+            will-change: transform;
+        }
         .lean-particle {
             position: absolute;
-            width: 8px;
-            height: 8px;
-            background: var(--accent-color);
+            width: 4px;
+            height: 4px;
+            background: rgba(212, 175, 55, 0.6);
             border-radius: 50%;
-            opacity: 0.6;
-            animation: floatParticle 8s infinite ease-in-out;
+            animation: burst 3s infinite ease-out;
+            will-change: transform, opacity;
         }
-
-        @keyframes floatParticle {
-            0%, 100% { transform: translateY(0); opacity: 0.6; }
-            50% { transform: translateY(-30px); opacity: 0.9; }
+        .lean-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(212, 175, 55, 0.5);
+            animation: float 7s infinite ease-in-out;
+            will-change: transform;
         }
-
-        .chart-container {
-            max-width: 600px;
-            margin: 1rem auto;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 0.8; }
         }
-
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        @keyframes pulseNode {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.8); opacity: 0.9; }
+        }
+        @keyframes flow {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100vw); }
+        }
+        @keyframes burst {
+            0% { transform: translate(0, 0); opacity: 0.6; }
+            100% { transform: translate(50px, 50px); opacity: 0; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes slideInDown {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(-20px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
         @media screen and (max-width: 1024px) {
             .cv-container {
-                margin-left: 220px;
+                margin-left: 200px;
                 padding: 1.5rem;
             }
             .sidebar {
-                width: 220px;
+                width: 200px;
+            }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .hero-section img {
+                width: 150px;
+                height: 150px;
             }
         }
-
         @media screen and (max-width: 768px) {
             .cv-container {
                 margin-left: 0;
                 padding: 1rem;
             }
             .sidebar {
-                width: 100%;
-                max-width: 280px;
+                width: 200px;
             }
-            .hero-section h1 {
-                font-size: 2.2rem;
+            .sidebar-toggle {
+                display: block;
             }
-            .hero-section img {
-                width: 140px;
-                height: 140px;
-            }
-            .chart-container {
-                max-width: 100%;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
             .hero-section h1 {
                 font-size: 1.8rem;
+            }
+            .hero-section img {
+                width: 120px;
+                height: 120px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 1.5rem;
             }
             .hero-section p {
                 font-size: 1rem;
             }
-            .lang-btn, .contact-info a, .toggle-btn, .download-btn, .print-btn, .submit-btn {
+            .lang-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            .contact-info a {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .download-btn, .print-btn, .submit-btn {
                 padding: 0.6rem 1rem;
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
         }
-
         @media print {
             body {
                 background: #fff;
                 color: #000;
+                display: block;
             }
-            .sidebar, .lean-elements, .sidebar-toggle, .lang-btns, .download-btn, .print-btn, .submit-btn, .contact-form, .form-success, .loader, .chart-container {
+            .sidebar, .lean-elements, .sidebar-toggle {
                 display: none;
             }
             .cv-container {
                 margin-left: 0;
                 box-shadow: none;
+                border: none;
+                background: #fff;
                 padding: 1rem;
             }
-            .hero-section {
-                background: none;
+            .hero-section, .section, .section-content {
+                box-shadow: none;
                 border: none;
+            }
+            .lang-btn, .download-btn, .print-btn, .submit-btn, .toggle-btn, .contact-form, .form-success {
+                display: none;
             }
             .section-content {
                 display: block;
-            }
-            .section-title {
-                color: #000;
             }
         }
     </style>
 </head>
 <body lang="en">
     <div class="lean-elements"></div>
-    <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle Sidebar" aria-expanded="false">☰</button>
+    <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle Sidebar">☰</button>
     <div class="sidebar closed">
         <div class="sidebar-section">
             <h3 data-key="navigation_title">Navigation</h3>
             <button onclick="showMessageCv()" data-key="message_cv" aria-label="View Message CV">Message CV</button>
+            <a href="#cover-letter" onclick="showCoverLetter()" data-key="cover_letter" aria-label="View Cover Letter">Cover Letter</a>
             <a href="#contact-us" onclick="showContactForm()" data-key="contact_us" aria-label="Contact Us">Contact Us</a>
         </div>
         <div class="login-form" id="login-form">
@@ -613,27 +750,21 @@
             <input type="password" id="login-password" placeholder="Password" required data-key="login_password_placeholder" aria-label="Password">
             <button onclick="loginWithEmail()" data-key="login_button" aria-label="Login">Login</button>
             <button onclick="logout()" data-key="logout_button" aria-label="Logout">Logout</button>
-            <div class="loader" id="login-loader">
-                <i class="fas fa-spinner fa-spin"></i> <span data-key="loading">Loading...</span>
-            </div>
         </div>
         <div class="message-cv" id="message-cv">
             <h3 data-key="message_cv_title">Message CV</h3>
             <button onclick="logout()" data-key="logout_button" aria-label="Logout">Logout</button>
             <div class="received-messages" id="received-messages">
                 <h4 data-key="received_messages_title">Received Messages</h4>
-                <div class="loader" id="messages-loader">
-                    <i class="fas fa-spinner fa-spin"></i> <span data-key="loading">Loading...</span>
-                </div>
                 <div id="messages-list"></div>
             </div>
         </div>
     </div>
     <div class="cv-container">
         <div class="hero-section">
-            <img src="https://i.ibb.co/tgnKQzc/20230728-121604.png" alt="Trabelsi Houssine Profile Picture" onerror="this.src='https://via.placeholder.com/160'">
+            <img src="https://i.ibb.co/tgnKQzc/20230728-121604.png" alt="Trabelsi Houssine Profile Picture" onerror="this.src='https://via.placeholder.com/180'">
             <h1 data-key="name">Trabelsi Houssine</h1>
-            <p data-key="title">Technician in Injection Molding & Lean Manufacturing</p>
+            <p data-key="title">Technicien in Injection Molding & Lean Manufacturing</p>
             <div class="lang-btns">
                 <button class="lang-btn active" data-lang="en" aria-label="Switch to English" role="button" tabindex="0" data-key="lang_en">English</button>
                 <button class="lang-btn" data-lang="fr" aria-label="Switch to French" role="button" tabindex="0" data-key="lang_fr">Français</button>
@@ -643,10 +774,10 @@
                 <a href="tel:+21622310333" aria-label="Phone Number">+216 22 310 333</a>
                 <a href="mailto:houssinetrabelsi6@gmail.com" aria-label="Email">houssinetrabelsi6@gmail.com</a>
                 <a href="https://www.linkedin.com/in/trabelsi-houssine-355332102" target="_blank" aria-label="LinkedIn Profile">LinkedIn</a>
-                <a href="https://www.linkedin.com/in/trabelsi-houssine-355332102" target="_blank" data-key="linkedin_message" aria-label="Message on LinkedIn">Message on LinkedIn</a>
+                <a href="https://www.linkedin.com/messaging/thread/new/?recipient=trabelsi-houssine-355332102" target="_blank" data-key="linkedin_message" aria-label="Message on LinkedIn">Message on LinkedIn</a>
             </div>
             <div class="actions">
-                <button class="download-btn" data-key="download" aria-label="Generate and Download CV as PDF">Download CV</button>
+                <a href="https://1drv.ms/b/c/9bd9f0dbc8c8eac7/EVDcv_BuyBhHnPq9baBTA6AB60jaVhebrs5Y6OjyhsAusA?e=x3L4FI" target="_blank" class="download-btn" data-key="download" aria-label="Download CV as PDF">Download CV</a>
                 <button class="print-btn" data-key="print" aria-label="Print CV">Print CV</button>
             </div>
         </div>
@@ -657,30 +788,14 @@
                 <div class="section-content" data-key="summary_text">
                     Born: September 11, 1990, Bizerte, Tunisia<br>
                     Position: Team Leader Technician (Injection Molding)<br><br>
-                    With over 14 years of experience at WKW Tunisia, I am a seasoned professional in injection molding, specializing in the production of high-quality automotive parts. As a Team Leader Technician, I have honed expertise in operating and optimizing advanced injection molding presses, including Engel, Demag Billion, and HUARONG, ensuring precision and efficiency in manufacturing processes.<br><br>
+                    With over 14 years of experience at WKW Tunisia, I am a seasoned professional in injection molding, specializing in the production of high-quality automotive parts. As a Chef d'Équipe Technicien, I have honed expertise in operating and optimizing advanced injection molding presses, including Engel, Demag Billion, and HUARONG, ensuring precision and efficiency in manufacturing processes.<br><br>
                     My leadership is grounded in Lean Manufacturing principles, with a strong focus on 5S, Kaizen, Gemba, and on-the-job training, driving operational excellence and team performance. I have a proven track record in continuous improvement, achieving an exceptional 99.9% Parts Per Million (PPM) quality rate. Certified in Sepro Robotics and Industrial Safety, I prioritize automation, safety, and quality in all operations.<br><br>
                     <strong>Key Strengths:</strong><br>
-                    - Expert in injection molding for automotive components<br>
+                    -technicien in injection molding for automotive components<br>
                     - Proficient in Engel, Demag Billion, and HUARONG press operations<br>
                     - Lean Manufacturing implementation (5S, Kaizen, Gemba)<br>
                     - Continuous improvement with a 99.9% PPM quality achievement<br>
                     - Certified in Sepro Robotics and Industrial Safety
-                </div>
-            </details>
-        </div>
-
-        <div class="section">
-            <details>
-                <summary class="section-title"><i class="fas fa-file-alt"></i> <span data-key="cover_letter_title">Cover Letter</span></summary>
-                <div class="section-content" data-key="cover_letter_text">
-                    <p>
-                        Dear Sir or Madam,<br><br>
-                        I am writing to apply for the position of Plastic Injection Adjuster Team Leader and Continuous Improvement Technician within your company.<br><br>
-                        With extensive experience in the precise adjustment of plastic injection molding machines, I possess in-depth technical expertise and a strong sense of leadership. My ability to manage and motivate a team, combined with my rigor and responsiveness in a production environment, enables me to ensure a high level of performance and quality.<br><br>
-                        Contributing to the achievement of your industrial objectives and the continuous improvement of processes would be a true commitment for me. I am confident that my profile meets the expectations of the position and will integrate effectively into your teams.<br><br>
-                        I look forward to the opportunity to discuss my application in greater detail during an interview. Please accept, Sir or Madam, my distinguished regards.<br><br>
-                        Trabelsi Houssine
-                    </p>
                 </div>
             </details>
         </div>
@@ -698,7 +813,7 @@
             <details>
                 <summary class="section-title"><i class="fas fa-recycle"></i> <span data-key="lean_title">Lean Manufacturing</span></summary>
                 <div class="section-content" data-key="lean_text">
-                    Applied 5S and Kaizen to reduce waste by 10%. Completed Lean Manufacturing certification (July 2024).
+                    Applied 5S and Kaizen to reduce waste by 10%. Completed Lean Manufacturing certification (July 2025).
                 </div>
             </details>
         </div>
@@ -708,9 +823,6 @@
                 <summary class="section-title"><i class="fas fa-chart-line"></i> <span data-key="continuous_title">Continuous Improvement</span></summary>
                 <div class="section-content" data-key="continuous_text">
                     Improved efficiency by 20% via TRS and QRQC. Achieved 99.9% PPM compliance (2022). Proposed 15+ improvement actions yearly.
-                    <div class="chart-container">
-                        <canvas id="improvement-chart"></canvas>
-                    </div>
                 </div>
             </details>
         </div>
@@ -760,6 +872,20 @@
             </details>
         </div>
 
+        <div class="section" id="cover-letter">
+            <details>
+                <summary class="section-title"><i class="fas fa-file-alt"></i> <span data-key="cover_letter_title">Cover Letter</span></summary>
+                <div class="section-content" data-key="cover_letter_text">
+                    Dear Sir or Madam,<br><br>
+                    I am applying for the position of Plastic Injection Adjuster Team Leader and Continuous Improvement Technician within your company.<br><br>
+                    With extensive experience in the precise adjustment of plastic injection machines, I possess in-depth technical expertise and a strong sense of leadership. My ability to lead and motivate a team, combined with my rigor and responsiveness in a production environment, enables me to ensure a high level of performance and quality.<br><br>
+                    Contributing to the achievement of your industrial objectives and the continuous improvement of processes would be a true commitment for me. I am confident that my profile meets the expectations of the position and will integrate effectively into your teams.<br><br>
+                    I look forward to the opportunity to discuss my application in more detail during an interview. Please accept, Sir or Madam, my distinguished greetings.<br><br>
+                    Trabelsi Houssine
+                </div>
+            </details>
+        </div>
+
         <div class="section" id="contact-us">
             <details>
                 <summary class="section-title"><i class="fas fa-envelope"></i> <span data-key="contact_title">Contact Me</span></summary>
@@ -767,12 +893,8 @@
                     <form class="contact-form" id="contact-form">
                         <input type="text" name="name" placeholder="Your Name" required data-key="form_name_placeholder" aria-label="Your Name">
                         <input type="email" name="email" placeholder="Your Email" required data-key="form_email_placeholder" aria-label="Your Email">
-                        <p class="input-error" id="email-error" data-key="invalid_email">Please enter a valid email address.</p>
                         <textarea name="message" placeholder="Your Message" required data-key="form_message_placeholder" aria-label="Your Message"></textarea>
                         <button type="submit" class="submit-btn" data-key="form_submit" aria-label="Send Message">Send Message</button>
-                        <div class="loader" id="form-loader">
-                            <i class="fas fa-spinner fa-spin"></i> <span data-key="loading">Loading...</span>
-                        </div>
                     </form>
                     <p class="form-success" data-key="form_success">Message sent successfully!</p>
                 </div>
@@ -781,11 +903,13 @@
     </div>
 
     <script type="module">
+        // Import Firebase SDKs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
         import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
         import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBWGCl2CSrFc9ca3UH_KX0r36RRZJ9BvGg",
             authDomain: "cv-trabelsi.firebaseapp.com",
@@ -796,17 +920,20 @@
             measurementId: "G-H58T1VN17E"
         };
 
+        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const auth = getAuth(app);
         const db = getFirestore(app);
 
+        // Translations object
         const translations = {
             en: {
                 name: "Trabelsi Houssine",
                 title: "Technician in Injection Molding & Lean Manufacturing",
                 navigation_title: "Navigation",
                 message_cv: "Message CV",
+                cover_letter: "Cover Letter",
                 contact_us: "Contact Us",
                 login_title: "Login",
                 login_email_placeholder: "Email",
@@ -815,29 +942,21 @@
                 logout_button: "Logout",
                 message_cv_title: "Message CV",
                 received_messages_title: "Received Messages",
-                loading: "Loading...",
                 summary_title: "Summary",
                 summary_text: `Born: September 11, 1990, Bizerte, Tunisia<br>
 Position: Team Leader Technician (Injection Molding)<br><br>
-With over 14 years of experience at WKW Tunisia, I am a seasoned professional in injection molding, specializing in the production of high-quality automotive parts. As a Team Leader Technician, I have honed expertise in operating and optimizing advanced injection molding presses, including Engel, Demag Billion, and HUARONG, ensuring precision and efficiency in manufacturing processes.<br><br>
+With over 14 years of experience at WKW Tunisia, I am a seasoned professional in injection molding, specializing in the production of high-quality automotive parts. As a Chef d'Équipe Technicien, I have honed expertise in operating and optimizing advanced injection molding presses, including Engel, Demag Billion, and HUARONG, ensuring precision and efficiency in manufacturing processes.<br><br>
 My leadership is grounded in Lean Manufacturing principles, with a strong focus on 5S, Kaizen, Gemba, and on-the-job training, driving operational excellence and team performance. I have a proven track record in continuous improvement, achieving an exceptional 99.9% Parts Per Million (PPM) quality rate. Certified in Sepro Robotics and Industrial Safety, I prioritize automation, safety, and quality in all operations.<br><br>
 <strong>Key Strengths:</strong><br>
-- Expert in injection molding for automotive components<br>
+- Technician in injection molding for automotive components<br>
 - Proficient in Engel, Demag Billion, and HUARONG press operations<br>
 - Lean Manufacturing implementation (5S, Kaizen, Gemba)<br>
 - Continuous improvement with a 99.9% PPM quality achievement<br>
 - Certified in Sepro Robotics and Industrial Safety`,
-                cover_letter_title: "Cover Letter",
-                cover_letter_text: `Dear Sir or Madam,<br><br>
-I am writing to apply for the position of Plastic Injection Adjuster Team Leader and Continuous Improvement Technician within your company.<br><br>
-With extensive experience in the precise adjustment of plastic injection molding machines, I possess in-depth technical expertise and a strong sense of leadership. My ability to manage and motivate a team, combined with my rigor and responsiveness in a production environment, enables me to ensure a high level of performance and quality.<br><br>
-Contributing to the achievement of your industrial objectives and the continuous improvement of processes would be a true commitment for me. I am confident that my profile meets the expectations of the position and will integrate effectively into your teams.<br><br>
-I look forward to the opportunity to discuss my application in greater detail during an interview. Please accept, Sir or Madam, my distinguished regards.<br><br>
-Trabelsi Houssine`,
                 injection_title: "Injection Molding",
                 injection_text: "Mastered Engel, Demag Billion Dixi (150T-500T), and HUARONG presses for multi-component automotive parts. Optimized cycle times by 10% (2023), reduced defects by 15%, ensured IATF 16949:2016 compliance.",
                 lean_title: "Lean Manufacturing",
-                lean_text: "Applied 5S and Kaizen to reduce waste by 10%. Completed Lean Manufacturing certification (July 2024).",
+                lean_text: "Applied 5S and Kaizen to reduce waste by 10%. Completed Lean Manufacturing certification (July 2025).",
                 continuous_title: "Continuous Improvement",
                 continuous_text: "Improved efficiency by 20% via TRS and QRQC. Achieved 99.9% PPM compliance (2022). Proposed 15+ improvement actions yearly.",
                 experience_title: "Professional Experience",
@@ -867,6 +986,13 @@ Trabelsi Houssine`,
                 task_21: "Train teams on new methods.",
                 show_more: "Show More",
                 show_less: "Show Less",
+                cover_letter_title: "Cover Letter",
+                cover_letter_text: `Dear Sir or Madam,<br><br>
+I am applying for the position of Plastic Injection Adjuster Team Leader and Continuous Improvement Technician within your company.<br><br>
+With extensive experience in the precise adjustment of plastic injection machines, I possess in-depth technical expertise and a strong sense of leadership. My ability to lead and motivate a team, combined with my rigor and responsiveness in a production environment, enables me to ensure a high level of performance and quality.<br><br>
+Contributing to the achievement of your industrial objectives and the continuous improvement of processes would be a true commitment for me. I am confident that my profile meets the expectations of the position and will integrate effectively into your teams.<br><br>
+I look forward to the opportunity to discuss my application in more detail during an interview. Please accept, Sir or Madam, my distinguished greetings.<br><br>
+Trabelsi Houssine`,
                 contact_title: "Contact Me",
                 form_name_placeholder: "Your Name",
                 form_email_placeholder: "Your Email",
@@ -893,16 +1019,14 @@ Trabelsi Houssine`,
                 form_error: "Failed to send message: ",
                 permission_denied: "Please log in first.",
                 logged_out: "Logged out successfully!",
-                no_messages: "No messages received yet.",
-                invalid_email: "Please enter a valid email address.",
-                generating_pdf: "Generating PDF...",
-                pdf_error: "Failed to generate PDF: "
+                no_messages: "No messages received yet."
             },
             fr: {
                 name: "Trabelsi Houssine",
                 title: "Technicien en moulage par injection et Lean Manufacturing",
                 navigation_title: "Navigation",
                 message_cv: "Message CV",
+                cover_letter: "Lettre de motivation",
                 contact_us: "Contactez-nous",
                 login_title: "Connexion",
                 login_email_placeholder: "Email",
@@ -911,28 +1035,21 @@ Trabelsi Houssine`,
                 logout_button: "Déconnexion",
                 message_cv_title: "Message CV",
                 received_messages_title: "Messages reçus",
-                loading: "Chargement...",
                 summary_title: "Résumé",
                 summary_text: `Né le 11 septembre 1990, Bizerte, Tunisie<br>
 Position : Chef d'équipe technicien (moulage par injection)<br><br>
 Avec plus de 14 ans d'expérience chez WKW Tunisie, je suis un professionnel chevronné en moulage par injection, spécialisé dans la production de pièces automobiles de haute qualité. En tant que Chef d'Équipe Technicien, j'ai perfectionné mon expertise dans l'opération et l'optimisation de presses à injection avancées, incluant Engel, Demag Billion et HUARONG, garantissant précision et efficacité dans les processus de fabrication.<br><br>
 Mon leadership repose sur les principes du Lean Manufacturing, avec un accent particulier sur le 5S, Kaizen, Gemba et la formation sur le terrain, favorisant l'excellence opérationnelle et la performance d'équipe. J'ai un historique prouvé d'amélioration continue, atteignant un taux de qualité exceptionnel de 99,9 % PPM. Certifié en robotique Sepro et en sécurité industrielle, je privilégie l'automatisation, la sécurité et la qualité dans toutes les opérations.<br><br>
 <strong>Points forts :</strong><br>
-- Expert en moulage par injection pour les composants automobiles<br>
+- Technicien en moulage par injection pour les composants automobiles<br>
 - Maîtrise des opérations de presses Engel, Demag Billion et HUARONG<br>
 - Mise en œuvre du Lean Manufacturing (5S, Kaizen, Gemba)<br>
 - Amélioration continue avec un taux de qualité PPM de 99,9 %<br>
 - Certifié en robotique Sepro et en sécurité industrielle`,
-                cover_letter_title: "Lettre de Motivation",
-                cover_letter_text: `Madame, Monsieur,<br><br>
-Je vous adresse ma candidature pour le poste de Chef d’Équipe Régleur en Injection Plastique et Technicien Amélioration Continue au sein de votre entreprise.<br><br>
-Fort d’une solide expérience dans le réglage précis des machines d’injection plastique, je possède une expertise technique approfondie ainsi qu’un véritable sens du leadership. Ma capacité à encadrer et motiver une équipe, combinée à ma rigueur et ma réactivité en environnement de production, me permet de garantir un haut niveau de performance et de qualité.<br><br>
-Contribuer à l’atteinte de vos objectifs industriels et à l’amélioration Ascensez l’expression de mes salutations distinguées.<br><br>
-Trabelsi Houssine`,
                 injection_title: "Moulage par injection",
                 injection_text: "Maîtrise des presses Engel, Demag Billion Dixi (150T-500T) et HUARONG pour les pièces automobiles multicomposants. Optimisation des temps de cycle de 10% (2023), réduction des défauts de 15%, conformité à la norme IATF 16949:2016.",
                 lean_title: "Lean Manufacturing",
-                lean_text: "Application de 5S et Kaizen pour réduire les déchets de 10%. Certification Lean Manufacturing obtenue (juillet 2024).",
+                lean_text: "Application de 5S et Kaizen pour réduire les déchets de 10%. Certification Lean Manufacturing obtenue (juillet 2025).",
                 continuous_title: "Amélioration continue",
                 continuous_text: "Amélioration de l'efficacité de 20% via TRS et QRQC. Conformité PPM de 99,9% atteinte (2022). Proposition de plus de 15 actions d'amélioration par an.",
                 experience_title: "Expérience professionnelle",
@@ -962,6 +1079,13 @@ Trabelsi Houssine`,
                 task_21: "Former les équipes aux nouvelles méthodes.",
                 show_more: "Voir plus",
                 show_less: "Voir moins",
+                cover_letter_title: "Lettre de motivation",
+                cover_letter_text: `Madame, Monsieur,<br><br>
+Je vous adresse ma candidature pour le poste de Chef d’Équipe Régleur en Injection Plastique et Technicien Amélioration Continue au sein de votre entreprise.<br><br>
+Fort d’une solide expérience dans le réglage précis des machines d’injection plastique, je possède une expertise technique approfondie ainsi qu’un véritable sens du leadership. Ma capacité à encadrer et motiver une équipe, combinée à ma rigueur et ma réactivité en environnement de production, me permet de garantir un haut niveau de performance et de qualité.<br><br>
+Contribuer à l’atteinte de vos objectifs industriels et à l’amélioration continue des processus serait pour moi un réel engagement. Je suis convaincu que mon profil saura répondre aux attentes du poste et s’intégrer efficacement à vos équipes.<br><br>
+Dans l’attente d’un entretien pour échanger plus en détail sur ma candidature, je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées.<br><br>
+Trabelsi Houssine`,
                 contact_title: "Contactez-moi",
                 form_name_placeholder: "Votre nom",
                 form_email_placeholder: "Votre email",
@@ -970,7 +1094,7 @@ Trabelsi Houssine`,
                 sending: "Envoi en cours...",
                 form_success: "Message envoyé avec succès !",
                 download: "Télécharger le CV",
-                print: "Print CV",
+                print: "Imprimer le CV",
                 linkedin_message: "Message sur LinkedIn",
                 lang_en: "English",
                 lang_fr: "Français",
@@ -988,16 +1112,14 @@ Trabelsi Houssine`,
                 form_error: "Échec de l'envoi du message : ",
                 permission_denied: "Veuillez d'abord vous connecter.",
                 logged_out: "Déconnexion réussie !",
-                no_messages: "Aucun message reçu pour le moment.",
-                invalid_email: "Veuillez entrer une adresse email valide.",
-                generating_pdf: "Génération du PDF...",
-                pdf_error: "Échec de la génération du PDF : "
+                no_messages: "Aucun message reçu pour le moment."
             },
             ar: {
                 name: "ترابلسي حسين",
                 title: "خبير في القولبة بالحقن والتصنيع الرشيق",
                 navigation_title: "التنقل",
                 message_cv: "رسالة السيرة الذاتية",
+                cover_letter: "رسالة تغطية",
                 contact_us: "اتصل بنا",
                 login_title: "تسجيل الدخول",
                 login_email_placeholder: "البريد الإلكتروني",
@@ -1006,7 +1128,6 @@ Trabelsi Houssine`,
                 logout_button: "تسجيل الخروج",
                 message_cv_title: "رسالة السيرة الذاتية",
                 received_messages_title: "الرسائل المستلمة",
-                loading: "جاري التحميل...",
                 summary_title: "ملخص",
                 summary_text: `مواليد 11 سبتمبر 1990، بنزرت، تونس<br>
 المنصب: قائد فريق تقني (القولبة بالحقن)<br><br>
@@ -1018,17 +1139,10 @@ Trabelsi Houssine`,
 - تطبيق التصنيع الرشيق (5S، Kaizen، Gemba)<br>
 - التحسين المستمر مع تحقيق جودة PPM بنسبة 99.9%<br>
 - حاصل على شهادة في روبوتات Sepro والسلامة الصناعية`,
-                cover_letter_title: "رسالة تحفيزية",
-                cover_letter_text: `السيدة/السيد المحترم،<br><br>
-أتقدم بطلبي لشغل منصب قائد فريق ضبط القولبة البلاستيكية وفني التحسين المستمر في شركتكم.<br><br>
-بفضل خبرتي الواسعة في ضبط دقيق لآلات القولبة البلاستيكية بالحقن، أمتلك خبرة تقنية عميقة وإحساسًا قويًا بالقيادة. قدرتي على إدارة وتحفيز الفريق، إلى جانب دقتي وسرعة استجابتي في بيئة الإنتاج، تمكنني من ضمان مستوى عالٍ من الأداء والجودة.<br><br>
-المساهمة في تحقيق أهدافكم الصناعية والتحسين المستمر للعمليات ستكون بالنسبة لي التزامًا حقيقيًا. أنا واثق من أن ملفي الشخصي يلبي توقعات المنصب وسيتكامل بفعالية مع فرقكم.<br><br>
-في انتظار فرصة لمناقشة طلبي بمزيد من التفصيل خلال مقابلة، أرجو قبول، السيدة/السيد، تعبيرات احترامي الموقرة.<br><br>
-ترابلسي حسين`,
                 injection_title: "القولبة بالحقن",
                 injection_text: "إتقان مكابس Engel وDemag Billion Dixi (150T-500T) وHUARONG لقطع السيارات متعددة المكونات. تحسين أوقات الدورة بنسبة 10% (2023)، تقليل العيوب بنسبة 15%، ضمان الامتثال لمعيار IATF 16949:2016.",
                 lean_title: "التصنيع الرشيق",
-                lean_text: "تطبيق 5S وKaizen لتقليل النفايات بنسبة 10%. حصلت على شهادة التصنيع الرشيق (يوليو 2024).",
+                lean_text: "تطبيق 5S وKaizen لتقليل النفايات بنسبة 10%. حصلت على شهادة التصنيع الرشيق (يوليو 2025).",
                 continuous_title: "التحسين المستمر",
                 continuous_text: "تحسين الكفاءة بنسبة 20% عبر TRS وQRQC. تحقيق امتثال PPM بنسبة 99.9% (2022). اقتراح أكثر من 15 إجراء تحسين سنويًا.",
                 experience_title: "الخبرة المهنية",
@@ -1047,7 +1161,7 @@ Trabelsi Houssine`,
                 task_8: "تهيئة الروبوتات",
                 management_title: "إدارة الفريق والتقارير",
                 task_13: "تصعيد التنبيهات إلى الرؤساء",
-                task_14: "الإبلاغ عن احتيياجات المعدات",
+                task_14: "الإبلاغ عن احتياجات المعدات",
                 task_15: "تعديل المعلمات للشذوذ",
                 task_16: "اقتراح تحسينات",
                 improvement_title: "فني التحسين المستمر",
@@ -1058,6 +1172,13 @@ Trabelsi Houssine`,
                 task_21: "تدريب الفرق على الأساليب الجديدة.",
                 show_more: "عرض المزيد",
                 show_less: "عرض أقل",
+                cover_letter_title: "رسالة تغطية",
+                cover_letter_text: `السيد/السيدة المحترمين،<br><br>
+أتقدم بطلبي لشغل منصب قائد فريق ضبط القولبة البلاستيكية وفني التحسين المستمر ضمن شركتكم.<br><br>
+مع خبرة واسعة في ضبط دقيق لآلات القولبة بالحقن، أمتلك خبرة تقنية عميقة وإحساسًا قويًا بالقيادة. قدرتي على قيادة الفريق وتحفيزه، مع دقتي واستجابتي في بيئة الإنتاج، تمكنني من ضمان مستوى عالٍ من الأداء والجودة.<br><br>
+المساهمة في تحقيق أهدافكم الصناعية وتحسين العمليات بشكل مستمر ستكون بالنسبة لي التزامًا حقيقيًا. أنا واثق من أن ملفي الشخصي يلبي توقعات المنصب وسيتكامل بفعالية مع فرقكم.<br><br>
+في انتظار فرصة مناقشة طلبي بالتفصيل خلال مقابلة، أرجو قبول، السيد/السيدة، تعبيرات تقديري العميق.<br><br>
+ترابلسي حسين`,
                 contact_title: "اتصل بي",
                 form_name_placeholder: "اسمك",
                 form_email_placeholder: "بريدك الإلكتروني",
@@ -1084,31 +1205,24 @@ Trabelsi Houssine`,
                 form_error: "فشل إرسال الرسالة: ",
                 permission_denied: "يرجى تسجيل الدخول أولاً.",
                 logged_out: "تم تسجيل الخروج بنجاح!",
-                no_messages: "لا توجد رسائل مستلمة بعد.",
-                invalid_email: "يرجى إدخال عنوان بريد إلكتروني صالح.",
-                generating_pdf: "جاري إنشاء PDF...",
-                pdf_error: "فشل إنشاء PDF: "
+                no_messages: "لا توجد رسائل مستلمة بعد."
             }
         };
 
+        // Sidebar and Authentication Functions
         window.toggleSidebar = () => {
             const sidebar = document.querySelector('.sidebar');
-            const toggle = document.querySelector('.sidebar-toggle');
             const cvContainer = document.querySelector('.cv-container');
-            if (!sidebar || !toggle) return;
+            if (!sidebar) {
+                console.error('Sidebar not found');
+                return;
+            }
             const isClosed = sidebar.classList.contains('closed');
             sidebar.classList.toggle('closed', !isClosed);
-            toggle.setAttribute('aria-expanded', isClosed);
             if (cvContainer && window.innerWidth > 768) {
-                cvContainer.style.marginLeft = isClosed ? '280px' : '0';
+                cvContainer.style.marginLeft = isClosed ? '250px' : '0';
             }
             localStorage.setItem('sidebarState', isClosed ? 'open' : 'closed');
-            gsap.to(sidebar, { x: isClosed ? 0 : '-100%', duration: 0.4, ease: "power2.out" });
-            if (isClosed) {
-                sidebar.querySelector('button, a')?.focus();
-            } else {
-                toggle.focus();
-            }
         };
 
         window.showLogin = () => {
@@ -1117,33 +1231,44 @@ Trabelsi Houssine`,
             if (loginForm && messageCv) {
                 loginForm.classList.add('active');
                 messageCv.classList.remove('active');
-                gsap.fromTo(loginForm, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
-                loginForm.querySelector('input')?.focus();
+            } else {
+                console.error('Login form or Message CV form not found');
             }
         };
 
         window.showMessageCv = async () => {
             const loginForm = document.getElementById('login-form');
             const messageCv = document.getElementById('message-cv');
-            const messagesLoader = document.getElementById('messages-loader');
-            if (!loginForm || !messageCv || !messagesLoader) return;
+            if (!loginForm || !messageCv) {
+                console.error('Login form or Message CV form not found');
+                return;
+            }
             if (auth.currentUser) {
                 loginForm.classList.remove('active');
                 messageCv.classList.add('active');
-                gsap.fromTo(messageCv, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
-                messagesLoader.style.display = 'block';
                 await fetchReceivedMessages();
-                messagesLoader.style.display = 'none';
-                messageCv.querySelector('button')?.focus();
             } else {
                 alert(translations[currentLang]?.login_first || 'Please log in first!');
                 showLogin();
             }
         };
 
+        window.showCoverLetter = () => {
+            const coverLetterSection = document.querySelector('#cover-letter');
+            if (coverLetterSection) {
+                coverLetterSection.querySelector('details').open = true;
+                coverLetterSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                console.error('Cover Letter section not found');
+            }
+        };
+
         async function fetchReceivedMessages() {
             const messagesList = document.getElementById('messages-list');
-            if (!messagesList) return;
+            if (!messagesList) {
+                console.error('Messages list container not found');
+                return;
+            }
             messagesList.innerHTML = '';
             try {
                 const q = query(collection(db, 'contact_messages'), orderBy('timestamp', 'desc'));
@@ -1163,9 +1288,9 @@ Trabelsi Houssine`,
                         <p class="timestamp">${new Date(data.timestamp.toDate()).toLocaleString()}</p>
                     `;
                     messagesList.appendChild(messageItem);
-                    gsap.from(messageItem, { opacity: 0, y: 10, duration: 0.5, delay: 0.2 });
                 });
             } catch (error) {
+                console.error('Error fetching messages:', error);
                 messagesList.innerHTML = `<p>${translations[currentLang]?.message_failed || 'Error fetching messages: '} ${error.message}</p>`;
             }
         }
@@ -1175,8 +1300,8 @@ Trabelsi Houssine`,
             if (contactSection) {
                 contactSection.querySelector('details').open = true;
                 contactSection.scrollIntoView({ behavior: 'smooth' });
-                gsap.from(contactSection.querySelector('.section-content'), { opacity: 0, y: 20, duration: 0.5 });
-                contactSection.querySelector('input[name="name"]')?.focus();
+            } else {
+                console.error('Contact section not found');
             }
         };
 
@@ -1184,14 +1309,13 @@ Trabelsi Houssine`,
             const email = document.getElementById('login-email')?.value;
             const password = document.getElementById('login-password')?.value;
             const loginButton = document.querySelector('#login-form button[data-key="login_button"]');
-            const loginLoader = document.getElementById('login-loader');
-            if (!loginButton || !email || !password || !loginLoader) {
+            if (!loginButton || !email || !password) {
+                console.error('Login form elements not found or inputs empty');
                 alert(translations[currentLang]?.login_failed || 'Login failed: Form elements missing or inputs empty.');
                 return;
             }
             loginButton.disabled = true;
             loginButton.textContent = translations[currentLang]?.logging_in || 'Logging in...';
-            loginLoader.style.display = 'block';
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 alert((translations[currentLang]?.logged_in || 'Logged in successfully as ') + userCredential.user.email + '!');
@@ -1209,13 +1333,15 @@ Trabelsi Houssine`,
             } finally {
                 loginButton.disabled = false;
                 loginButton.textContent = translations[currentLang]?.login_button || 'Login';
-                loginLoader.style.display = 'none';
             }
         };
 
         window.logout = async () => {
             const logoutButtons = document.querySelectorAll('button[data-key="logout_button"]');
-            if (!logoutButtons.length) return;
+            if (!logoutButtons.length) {
+                console.error('Logout button not found');
+                return;
+            }
             logoutButtons.forEach(button => {
                 button.disabled = true;
                 button.textContent = translations[currentLang]?.logging_out || 'Logging out...';
@@ -1234,21 +1360,10 @@ Trabelsi Houssine`,
             }
         };
 
+        // Contact Form Submission
         let lastSubmission = 0;
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
-            const emailInput = document.querySelector('#contact-form [name="email"]');
-            const emailError = document.getElementById('email-error');
-            if (emailInput && emailError) {
-                emailInput.addEventListener('input', () => {
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailInput.value || emailRegex.test(emailInput.value)) {
-                        emailError.classList.remove('active');
-                    } else {
-                        emailError.classList.add('active');
-                    }
-                });
-            }
             contactForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const now = Date.now();
@@ -1262,21 +1377,13 @@ Trabelsi Houssine`,
                 const message = document.querySelector('#contact-form [name="message"]')?.value;
                 const formSuccess = document.querySelector('.form-success');
                 const submitButton = document.querySelector('#contact-form .submit-btn');
-                const formLoader = document.getElementById('form-loader');
-                if (!name || !email || !message || !formSuccess || !submitButton || !formLoader) {
+                if (!name || !email || !message || !formSuccess || !submitButton) {
+                    console.error('Contact form elements not found or inputs empty');
                     alert(translations[currentLang]?.form_error || 'Failed to send message: Form elements missing or inputs empty.');
-                    return;
-                }
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    alert(translations[currentLang]?.invalid_email || 'Please enter a valid email address.');
-                    emailError.classList.add('active');
-                    emailInput.focus();
                     return;
                 }
                 submitButton.disabled = true;
                 submitButton.textContent = translations[currentLang]?.sending || 'Sending...';
-                formLoader.style.display = 'block';
                 try {
                     await addDoc(collection(db, "contact_messages"), {
                         name: name,
@@ -1286,21 +1393,21 @@ Trabelsi Houssine`,
                     });
                     formSuccess.style.display = 'block';
                     contactForm.reset();
-                    emailError.classList.remove('active');
-                    gsap.fromTo(formSuccess, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5 });
                     setTimeout(() => {
-                        gsap.to(formSuccess, { opacity: 0, duration: 0.5, onComplete: () => formSuccess.style.display = 'none' });
+                        formSuccess.style.display = 'none';
                     }, 3000);
                 } catch (error) {
-                    alert((translations[currentLang]?.form_error || 'Failed to send message: ') + error.message);
+                    let errorMessage = translations[currentLang]?.form_error || 'Failed to send message: ';
+                    errorMessage += error.message;
+                    alert(errorMessage);
                 } finally {
-                    submitButton.disabled = false;
+                  submitButton.disabled = false;
                     submitButton.textContent = translations[currentLang]?.form_submit || 'Send Message';
-                    formLoader.style.display = 'none';
                 }
             });
         }
 
+        // Language Toggle
         const langButtons = document.querySelectorAll('.lang-btn');
         let currentLang = localStorage.getItem('lang') || 'en';
 
@@ -1308,10 +1415,7 @@ Trabelsi Houssine`,
             currentLang = lang;
             localStorage.setItem('lang', lang);
             document.body.setAttribute('lang', lang);
-            langButtons.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-                btn.setAttribute('aria-current', btn.dataset.lang === lang ? 'true' : 'false');
-            });
+            langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
             document.querySelectorAll('[data-key]').forEach(element => {
                 const translation = translations[lang][element.dataset.key] || element.innerHTML;
                 element.innerHTML = translation;
@@ -1322,28 +1426,23 @@ Trabelsi Houssine`,
             if (auth.currentUser && document.getElementById('message-cv')?.classList.contains('active')) {
                 fetchReceivedMessages();
             }
-            initChart();
         }
 
-        langButtons.forEach(btn => btn.addEventListener('click', () => {
-            setLanguage(btn.dataset.lang);
-            gsap.from('.cv-container', { opacity: 0, duration: 0.5 });
-            btn.focus();
-        }));
+        langButtons.forEach(btn => btn.addEventListener('click', () => setLanguage(btn.dataset.lang)));
         setLanguage(currentLang);
 
+        // Accordion Behavior
         document.querySelectorAll('details').forEach(details => {
             details.addEventListener('toggle', () => {
                 if (details.open) {
                     document.querySelectorAll('details').forEach(other => {
                         if (other !== details) other.removeAttribute('open');
                     });
-                    gsap.from(details.querySelector('.section-content'), { opacity: 0, y: 20, duration: 0.5 });
-                    details.querySelector('summary')?.focus();
                 }
             });
         });
 
+        // Toggle Tasks
         const toggleBtn = document.querySelector('.toggle-btn');
         if (toggleBtn) {
             toggleBtn.addEventListener('click', () => {
@@ -1351,142 +1450,67 @@ Trabelsi Houssine`,
                 const isHidden = hiddenTasks[0]?.style.display === 'none' || !hiddenTasks[0]?.style.display;
                 hiddenTasks.forEach(task => task.style.display = isHidden ? 'list-item' : 'none');
                 toggleBtn.textContent = translations[currentLang][isHidden ? 'show_less' : 'show_more'];
-                gsap.from(hiddenTasks, { opacity: 0, y: 10, duration: 0.5, stagger: 0.1 });
-                toggleBtn.focus();
             });
         }
 
+        // Print CV
         const printBtn = document.querySelector('.print-btn');
         if (printBtn) {
             printBtn.addEventListener('click', () => window.print());
         }
 
-        const downloadBtn = document.querySelector('.download-btn');
-        if (downloadBtn) {
-            downloadBtn.addEventListener('click', async () => {
-                downloadBtn.disabled = true;
-                downloadBtn.textContent = translations[currentLang]?.generating_pdf || 'Generating PDF...';
-                try {
-                    const element = document.querySelector('.cv-container');
-                    if (!element) throw new Error('CV container not found');
-                    const sidebar = document.querySelector('.sidebar');
-                    const toggle = document.querySelector('.sidebar-toggle');
-                    const langButtons = document.querySelector('.lang-btns');
-                    const buttons = document.querySelector('.actions');
-                    const contactForm = document.querySelector('#contact-us');
-                    const chart = document.querySelector('.chart-container');
-                    if (sidebar) sidebar.style.display = 'none';
-                    if (toggle) toggle.style.display = 'none';
-                    if (langButtons) langButtons.style.display = 'none';
-                    if (buttons) buttons.style.display = 'none';
-                    if (contactForm) contactForm.style.display = 'none';
-                    if (chart) chart.style.display = 'none';
-                    document.querySelectorAll('.section-content').forEach(content => content.style.display = 'block');
-                    await html2pdf().from(element).set({
-                        filename: 'Trabelsi_Houssine_CV.pdf',
-                        margin: 10,
-                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-                    }).save();
-                } catch (error) {
-                    alert((translations[currentLang]?.pdf_error || 'Failed to generate PDF: ') + error.message);
-                } finally {
-                    downloadBtn.disabled = false;
-                    downloadBtn.textContent = translations[currentLang]?.download || 'Download CV';
-                    const sidebar = document.querySelector('.sidebar');
-                    const toggle = document.querySelector('.sidebar-toggle');
-                    const langButtons = document.querySelector('.lang-btns');
-                    const buttons = document.querySelector('.actions');
-                    const contactForm = document.querySelector('#contact-us');
-                    const chart = document.querySelector('.chart-container');
-                    if (sidebar) sidebar.style.display = 'block';
-                    if (toggle) toggle.style.display = 'block';
-                    if (langButtons) langButtons.style.display = 'flex';
-                    if (buttons) buttons.style.display = 'block';
-                    if (contactForm) contactForm.style.display = 'block';
-                    if (chart) chart.style.display = 'block';
-                    document.querySelectorAll('.section-content').forEach(content => content.style.display = 'none');
-                    downloadBtn.focus();
-                }
-            });
-        }
-
+        // Enhanced Lean Background Elements
         function createLeanElements() {
             const leanContainer = document.querySelector('.lean-elements');
-            if (!leanContainer) return;
+            if (!leanContainer) {
+                console.error('Lean elements container not found');
+                return;
+            }
+            for (let i = 0; i < 10; i++) {
+                const node = document.createElement('div');
+                node.className = 'lean-node';
+                node.style.left = `${Math.random() * 100}vw`;
+                node.style.top = `${Math.random() * 100}vh`;
+                node.style.animationDelay = `${Math.random() * 3}s`;
+                leanContainer.appendChild(node);
+            }
+            for (let i = 0; i < 3; i++) {
+                const line = document.createElement('div');
+                line.className = 'lean-line';
+                line.style.left = `${i * 20}%`;
+                line.style.top = `${Math.random() * 100}vh`;
+                line.style.width = '100vw';
+                line.style.animationDuration = `${5 + Math.random() * 3}s`;
+                line.style.animationDelay = `${i * 1}s`;
+                leanContainer.appendChild(line);
+            }
             for (let i = 0; i < 5; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'lean-particle';
                 particle.style.left = `${Math.random() * 100}vw`;
                 particle.style.top = `${Math.random() * 100}vh`;
-                particle.style.animationDelay = `${Math.random() * 3}s`;
+                particle.style.animationDelay = `${Math.random() * 2}s`;
                 leanContainer.appendChild(particle);
+            }
+            const icons = ['fas fa-cogs', 'fas fa-check', 'fas fa-chart-line', 'fas fa-tools'];
+            for (let i = 0; i < 4; i++) {
+                const icon = document.createElement('i');
+                icon.className = `lean-icon ${icons[Math.floor(Math.random() * icons.length)]}`;
+                icon.style.left = `${Math.random() * 100}vw`;
+                icon.style.top = `${Math.random() * 100}vh`;
+                icon.style.animationDelay = `${Math.random() * 4}s`;
+                leanContainer.appendChild(icon);
             }
         }
 
-        function initChart() {
-            const ctx = document.getElementById('improvement-chart')?.getContext('2d');
-            if (!ctx) return;
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: [
-                        translations[currentLang]?.cycle_time || 'Cycle Time Optimization',
-                        translations[currentLang]?.defect_reduction || 'Defect Reduction',
-                        translations[currentLang]?.efficiency || 'Efficiency Improvement'
-                    ],
-                    datasets: [{
-                        label: translations[currentLang]?.improvement_label || 'Improvement (%)',
-                        data: [10, 15, 20],
-                         backgroundColor: ['#f97316', '#f59e0b', '#1e3a8a'],
-                        borderColor: ['#fff', '#fff', '#fff'],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: { display: true, text: translations[currentLang]?.percentage || 'Percentage (%)' }
-                        },
-                        x: {
-                            title: { display: true, text: translations[currentLang]?.metrics || 'Metrics' }
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        title: { display: true, text: translations[currentLang]?.chart_title || 'Continuous Improvement Metrics' }
-                    },
-                    animation: {
-                        onComplete: () => {
-                            gsap.from('#improvement-chart', { opacity: 0, y: 20, duration: 0.8 });
-                        }
-                    }
-                }
-            });
-        }
-
-        function initSectionAnimations() {
-            document.querySelectorAll('.section').forEach(section => {
-                const observer = new IntersectionObserver(entries => {
-                    entries.forEach(entry => {
-                        const title = entry.target.querySelector('.section-title');
-                        if (entry.isIntersecting) {
-                            title.classList.add('in-view');
-                            gsap.to(title, { color: 'var(--accent-color)', duration: 0.5 });
-                        } else {
-                            title.classList.remove('in-view');
-                            gsap.to(title, { color: 'var(--primary-color)', duration: 0.5 });
-                        }
-                    });
-                }, { threshold: 0.5 });
-                observer.observe(section);
-            });
-        }
-
+          // Initialize after DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.querySelector('.sidebar');
+            if (!sidebar) {
+                console.error('Sidebar not found during initialization');
+                return;
+            }
             createLeanElements();
-            initChart();
-            initSectionAnimations();
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     showMessageCv();
@@ -1498,15 +1522,16 @@ Trabelsi Houssine`,
             if (sidebarState === 'open' && window.innerWidth > 768) {
                 toggleSidebar();
             }
-            gsap.from('.hero-section', { opacity: 0, scale: 0.9, duration: 1, ease: "power3.out" });
-            gsap.from('.hero-section img', { opacity: 0, y: -50, duration: 0.8, delay: 0.2 });
-            gsap.from('.hero-section h1', { opacity: 0, y: 30, duration: 0.8, delay: 0.4 });
-            gsap.from('.hero-section p', { opacity: 0, y: 30, duration: 0.8, delay: 0.6 });
-            gsap.from('.lang-btns .lang-btn', { opacity: 0, y: 20, duration: 0.6, delay: 0.8, stagger: 0.1 });
-            gsap.from('.contact-info a', { opacity: 0, y: 20, duration: 0.6, delay: 1, stagger: 0.1 });
-            gsap.from('.actions', { opacity: 0, y: 20, duration: 0.6, delay: 1.2 });
-            gsap.from('.section', { opacity: 0, x: -30, duration: 0.8, stagger: 0.2, delay: 1.4 });
         });
+
+        // GSAP Animations
+        gsap.from('.hero-section', { opacity: 0, scale: 0.7, duration: 1.5, ease: "elastic.out(1, 0.3)" });
+        gsap.from('.hero-section h1', { opacity: 0, y: 40, duration: 1.2, delay: 0.2, ease: "power3.out" });
+        gsap.from('.hero-section p', { opacity: 0, y: 40, duration: 1.2, delay: 0.4, ease: "power3.out" });
+        gsap.from('.lang-btns', { opacity: 0, y: 30, duration: 1, delay: 0.6, stagger: 0.15, ease: "power2.out" });
+        gsap.from('.contact-info a', { opacity: 0, y: 30, duration: 1, delay: 0.9, stagger: 0.15, ease: "power2.out" });
+        gsap.from('.actions', { opacity: 0, y: 30, duration: 1, delay: 1.2, ease: "power2.out" });
+        gsap.from('.section', { opacity: 0, x: -60, duration: 1, stagger: 0.25, delay: 1.5, ease: "power3.out" });
     </script>
 </body>
 </html>
