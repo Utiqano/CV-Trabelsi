@@ -714,6 +714,9 @@
             .sidebar, .lean-elements, .sidebar-toggle {
                 display: none;
             }
+            .letter-content p {
+                margin: 0.5rem 0;
+            }
             .cv-container {
                 margin-left: 0;
                 box-shadow: none;
@@ -741,7 +744,7 @@
         <div class="sidebar-section">
             <h3 data-key="navigation_title">Navigation</h3>
             <button onclick="showMessageCv()" data-key="message_cv" aria-label="View Message CV">Message CV</button>
-            <a href="#cover-letter" onclick="showCoverLetter()" data-key="cover_letter" aria-label="View Cover Letter">Cover Letter</a>
+            <a href="#letter" onclick="showLetter()" data-key="letter_title" aria-label="View Cover Letter">Cover Letter</a>
             <a href="#contact-us" onclick="showContactForm()" data-key="contact_us" aria-label="Contact Us">Contact Us</a>
         </div>
         <div class="login-form" id="login-form">
@@ -872,16 +875,16 @@
             </details>
         </div>
 
-        <div class="section" id="cover-letter">
+        <div class="section" id="letter">
             <details>
-                <summary class="section-title"><i class="fas fa-file-alt"></i> <span data-key="cover_letter_title">Cover Letter</span></summary>
-                <div class="section-content" data-key="cover_letter_text">
-                    Dear Sir or Madam,<br><br>
-                    I am applying for the position of Plastic Injection Adjuster Team Leader and Continuous Improvement Technician within your company.<br><br>
-                    With extensive experience in the precise adjustment of plastic injection machines, I possess in-depth technical expertise and a strong sense of leadership. My ability to lead and motivate a team, combined with my rigor and responsiveness in a production environment, enables me to ensure a high level of performance and quality.<br><br>
-                    Contributing to the achievement of your industrial objectives and the continuous improvement of processes would be a true commitment for me. I am confident that my profile meets the expectations of the position and will integrate effectively into your teams.<br><br>
-                    I look forward to the opportunity to discuss my application in more detail during an interview. Please accept, Sir or Madam, my distinguished greetings.<br><br>
-                    Trabelsi Houssine
+                <summary class="section-title"><i class="fas fa-file-alt"></i> <span data-key="letter_title">Cover Letter</span></summary>
+                <div class="section-content letter-content" data-key="letter_text">
+                    <p>Madame, Monsieur,</p>
+                    <p>Je vous adresse ma candidature pour le poste de Chef d’Équipe Régleur en Injection Plastique et Technicien Amélioration Continue au sein de votre entreprise.</p>
+                    <p>Fort d’une solide expérience dans le réglage précis des machines d’injection plastique, je possède une expertise technique approfondie ainsi qu’un véritable sens du leadership. Ma capacité à encadrer et motiver une équipe, combinée à ma rigueur et ma réactivité en environnement de production, me permet de garantir un haut niveau de performance et de qualité.</p>
+                    <p>Contribuer à l’atteinte de vos objectifs industriels et à l’amélioration continue des processus serait pour moi un réel engagement. Je suis convaincu que mon profil saura répondre aux attentes du poste et s’intégrer efficacement à vos équipes.</p>
+                    <p>Dans l’attente d’un entretien pour échanger plus en détail sur ma candidature, je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées.</p>
+                    <p>Trabelsi Houssine</p>
                 </div>
             </details>
         </div>
@@ -933,8 +936,14 @@
                 title: "Technician in Injection Molding & Lean Manufacturing",
                 navigation_title: "Navigation",
                 message_cv: "Message CV",
-                cover_letter: "Cover Letter",
                 contact_us: "Contact Us",
+                letter_title: "Cover Letter",
+                letter_text: `<p>Dear Sir or Madam,</p>
+<p>I am applying for the position of Plastic Injection Adjuster Team Leader and Continuous Improvement Technician within your company.</p>
+<p>With extensive experience in the precise adjustment of plastic injection machines, I possess in-depth technical expertise and a strong sense of leadership. My ability to lead and motivate a team, combined with my rigor and responsiveness in a production environment, allows me to ensure a high level of performance and quality.</p>
+<p>Contributing to the achievement of your industrial goals and the continuous improvement of processes would be a genuine commitment for me. I am confident that my profile meets the expectations of the position and will integrate effectively into your teams.</p>
+<p>I look forward to the opportunity for an interview to discuss my application in more detail. Please accept, Sir or Madam, my distinguished regards.</p>
+<p>Trabelsi Houssine</p>`,
                 login_title: "Login",
                 login_email_placeholder: "Email",
                 login_password_placeholder: "Password",
@@ -986,13 +995,6 @@ My leadership is grounded in Lean Manufacturing principles, with a strong focus 
                 task_21: "Train teams on new methods.",
                 show_more: "Show More",
                 show_less: "Show Less",
-                cover_letter_title: "Cover Letter",
-                cover_letter_text: `Dear Sir or Madam,<br><br>
-I am applying for the position of Plastic Injection Adjuster Team Leader and Continuous Improvement Technician within your company.<br><br>
-With extensive experience in the precise adjustment of plastic injection machines, I possess in-depth technical expertise and a strong sense of leadership. My ability to lead and motivate a team, combined with my rigor and responsiveness in a production environment, enables me to ensure a high level of performance and quality.<br><br>
-Contributing to the achievement of your industrial objectives and the continuous improvement of processes would be a true commitment for me. I am confident that my profile meets the expectations of the position and will integrate effectively into your teams.<br><br>
-I look forward to the opportunity to discuss my application in more detail during an interview. Please accept, Sir or Madam, my distinguished greetings.<br><br>
-Trabelsi Houssine`,
                 contact_title: "Contact Me",
                 form_name_placeholder: "Your Name",
                 form_email_placeholder: "Your Email",
@@ -1026,8 +1028,14 @@ Trabelsi Houssine`,
                 title: "Technicien en moulage par injection et Lean Manufacturing",
                 navigation_title: "Navigation",
                 message_cv: "Message CV",
-                cover_letter: "Lettre de motivation",
                 contact_us: "Contactez-nous",
+                letter_title: "Lettre de Motivation",
+                letter_text: `<p>Madame, Monsieur,</p>
+<p>Je vous adresse ma candidature pour le poste de Chef d’Équipe Régleur en Injection Plastique et Technicien Amélioration Continue au sein de votre entreprise.</p>
+<p>Fort d’une solide expérience dans le réglage précis des machines d’injection plastique, je possède une expertise technique approfondie ainsi qu’un véritable sens du leadership. Ma capacité à encadrer et motiver une équipe, combinée à ma rigueur et ma réactivité en environnement de production, me permet de garantir un haut niveau de performance et de qualité.</p>
+<p>Contribuer à l’atteinte de vos objectifs industriels et à l’amélioration continue des processus serait pour moi un réel engagement. Je suis convaincu que mon profil saura répondre aux attentes du poste et s’intégrer efficacement à vos équipes.</p>
+<p>Dans l’attente d’un entretien pour échanger plus en détail sur ma candidature, je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées.</p>
+<p>Trabelsi Houssine</p>`,
                 login_title: "Connexion",
                 login_email_placeholder: "Email",
                 login_password_placeholder: "Mot de passe",
@@ -1079,13 +1087,6 @@ Mon leadership repose sur les principes du Lean Manufacturing, avec un accent pa
                 task_21: "Former les équipes aux nouvelles méthodes.",
                 show_more: "Voir plus",
                 show_less: "Voir moins",
-                cover_letter_title: "Lettre de motivation",
-                cover_letter_text: `Madame, Monsieur,<br><br>
-Je vous adresse ma candidature pour le poste de Chef d’Équipe Régleur en Injection Plastique et Technicien Amélioration Continue au sein de votre entreprise.<br><br>
-Fort d’une solide expérience dans le réglage précis des machines d’injection plastique, je possède une expertise technique approfondie ainsi qu’un véritable sens du leadership. Ma capacité à encadrer et motiver une équipe, combinée à ma rigueur et ma réactivité en environnement de production, me permet de garantir un haut niveau de performance et de qualité.<br><br>
-Contribuer à l’atteinte de vos objectifs industriels et à l’amélioration continue des processus serait pour moi un réel engagement. Je suis convaincu que mon profil saura répondre aux attentes du poste et s’intégrer efficacement à vos équipes.<br><br>
-Dans l’attente d’un entretien pour échanger plus en détail sur ma candidature, je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées.<br><br>
-Trabelsi Houssine`,
                 contact_title: "Contactez-moi",
                 form_name_placeholder: "Votre nom",
                 form_email_placeholder: "Votre email",
@@ -1115,12 +1116,18 @@ Trabelsi Houssine`,
                 no_messages: "Aucun message reçu pour le moment."
             },
             ar: {
-                name: "ترابلسي حسين",
+                name: "طرابلسي حسين",
                 title: "خبير في القولبة بالحقن والتصنيع الرشيق",
                 navigation_title: "التنقل",
                 message_cv: "رسالة السيرة الذاتية",
-                cover_letter: "رسالة تغطية",
                 contact_us: "اتصل بنا",
+                letter_title: "خطاب التقديم",
+                letter_text: `<p>السيدة/السيد،</p>
+<p>أتقدم بطلبي لشغل منصب قائد فريق ضبط القولبة البلاستيكية وفني التحسين المستمر في شركتكم.</p>
+<p>بفضل خبرتي الواسعة في ضبط دقيق لآلات القولبة البلاستيكية، أمتلك خبرة تقنية عميقة وحس قيادي حقيقي. قدرتي على قيادة الفريق وتحفيزه، بالإضافة إلى دقة عملي وسرعة استجابتي في بيئة الإنتاج، تمكنني من ضمان مستوى عالٍ من الأداء والجودة.</p>
+<p>المساهمة في تحقيق أهدافكم الصناعية وتحسين العمليات بشكل مستمر ستكون بالنسبة لي التزامًا حقيقيًا. أنا مقتنع بأن ملفي الشخصي سيلبي توقعات المنصب وسيتكامل بفعالية مع فرقكم.</p>
+<p>في انتظار فرصة لإجراء مقابلة لمناقشة طلبي بالتفصيل، أتقدم إليكم، السيدة/السيد، بأسمى عبارات التقدير والاحترام.</p>
+<p>ترابلسي حسين</p>`,
                 login_title: "تسجيل الدخول",
                 login_email_placeholder: "البريد الإلكتروني",
                 login_password_placeholder: "كلمة المرور",
@@ -1131,8 +1138,8 @@ Trabelsi Houssine`,
                 summary_title: "ملخص",
                 summary_text: `مواليد 11 سبتمبر 1990، بنزرت، تونس<br>
 المنصب: قائد فريق تقني (القولبة بالحقن)<br><br>
-مع أكثر من 14 عامًا من الخبرة في WKW تونس، أنا محترف متمرس في القولبة بالحقن، متخصص في إنتاج قطع غيار السيارات عالية الجودة. كرئيس فريق تقني، قمت بصقل خبرتي في تشغيل وتحسين مكابس القولبة بالحقن المتقدمة، بما في ذلك Engel وDemag Billion وHUARONG، مما يضمن الدقة والكفاءة في عمليات التصنيع.<br><br>
-قيادتي تستند إلى مبادئ التصنيع الرشيق، مع التركيز بشكل خاص على 5S، Kaizen، Gemba، والتدريب أثناء العمل، مما يعزز التميز التشغيلي وأداء الفريق. لدي سجل حافل بالتحسين المستمر، محققًا معدل جودة استثنائي بنسبة 99.9% PPM. حاصل على شهادة في روبوتات Sepro والسلامة الصناعية، أعطي الأولوية للأتمتة، السلامة، والجودة في جميع العمليات.<br><br>
+مع أكثر من 14 عامًا من الخبرة في WKW تونس، أنا محترف متمرس في القولبة بالحقن، متخصص في إنتاج قطع غيار السيارات عالية الجودة. كرئيس فريق تقني، قمت بصقل خبرتي في تشغيل وتحسين مكابس القولبة بالвенي المتقدمة، بما في ذلك Engel وDemag Billion وHUARONG، مما يضمن الدقة والكفاءة في عمليات التصنيع.<br><br>
+قيادتي تستند إلى مبادئ التصنيع الرشيق، مع التر focus بشكل خاص على 5S، Kaizen، Gemba، والتدريب أثناء العمل، مما يعزز التميز التشغيلي وأداء الفريق. لدي سجل حافل بالتحسين المستمر، محققًا معدل جودة استثنائي بنسبة 99.9% PPM. حاصل على شهادة في روبوتات Sepro والسلامة الصناعية، أعطي الأولوية للأتمتة، السلامة، والجودة في جميع العمليات.<br><br>
 <strong>النقاط القوية:</strong><br>
 - الخبرة في القولبة بالحقن لمكونات السيارات<br>
 - الكفاءة في تشغيل مكابس Engel وDemag Billion وHUARONG<br>
@@ -1172,13 +1179,6 @@ Trabelsi Houssine`,
                 task_21: "تدريب الفرق على الأساليب الجديدة.",
                 show_more: "عرض المزيد",
                 show_less: "عرض أقل",
-                cover_letter_title: "رسالة تغطية",
-                cover_letter_text: `السيد/السيدة المحترمين،<br><br>
-أتقدم بطلبي لشغل منصب قائد فريق ضبط القولبة البلاستيكية وفني التحسين المستمر ضمن شركتكم.<br><br>
-مع خبرة واسعة في ضبط دقيق لآلات القولبة بالحقن، أمتلك خبرة تقنية عميقة وإحساسًا قويًا بالقيادة. قدرتي على قيادة الفريق وتحفيزه، مع دقتي واستجابتي في بيئة الإنتاج، تمكنني من ضمان مستوى عالٍ من الأداء والجودة.<br><br>
-المساهمة في تحقيق أهدافكم الصناعية وتحسين العمليات بشكل مستمر ستكون بالنسبة لي التزامًا حقيقيًا. أنا واثق من أن ملفي الشخصي يلبي توقعات المنصب وسيتكامل بفعالية مع فرقكم.<br><br>
-في انتظار فرصة مناقشة طلبي بالتفصيل خلال مقابلة، أرجو قبول، السيد/السيدة، تعبيرات تقديري العميق.<br><br>
-ترابلسي حسين`,
                 contact_title: "اتصل بي",
                 form_name_placeholder: "اسمك",
                 form_email_placeholder: "بريدك الإلكتروني",
@@ -1253,11 +1253,11 @@ Trabelsi Houssine`,
             }
         };
 
-        window.showCoverLetter = () => {
-            const coverLetterSection = document.querySelector('#cover-letter');
-            if (coverLetterSection) {
-                coverLetterSection.querySelector('details').open = true;
-                coverLetterSection.scrollIntoView({ behavior: 'smooth' });
+        window.showLetter = () => {
+            const letterSection = document.querySelector('#letter');
+            if (letterSection) {
+                letterSection.querySelector('details').open = true;
+                letterSection.scrollIntoView({ behavior: 'smooth' });
             } else {
                 console.error('Cover Letter section not found');
             }
